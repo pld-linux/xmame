@@ -12,7 +12,7 @@ Summary(pl):	Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11
 Summary(pt_BR):	Emulador de Arcades X-Mame
 Name:		xmame
 Version:	0.86
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications/Emulators
 #Source0Download:	http://x.mame.net/xmame-doc-7.html
@@ -186,7 +186,7 @@ Wygaszacz ekranu XMame.
 %package qtmame
 Summary:	Qtmame - graphic interface for XMame
 Summary(pl):	Qtmame - graficzny interfejs dla XMame
-Group:		Applications/Emulator
+Group:		Applications/Emulators
 URL:		http://move.to/ingenio
 Requires:	%{name}-common = %{version}-%{release}
 Provides:	qtmame
@@ -201,7 +201,7 @@ Graficzny interfejs dla XMame.
 %package xmess-x11
 Summary:	xmess - a virtual machine emulator for x11
 Summary(pl):	xmess - emulator maszyny wirtualnej dla x11
-Group:		Applications/Emulator
+Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
 %description xmess-x11
@@ -217,7 +217,7 @@ Ten pakiet zawiera binaria dla x11.
 %package xmess-SDL
 Summary:	xmess - a virtual machine emulator for SDL
 Summary(pl):	xmess - emulator maszyny wirtualnej dla SDL
-Group:		Applications/Emulator
+Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
 %description xmess-SDL
@@ -233,7 +233,7 @@ Ten pakiet zawiera binaria dla SDL.
 %package xmess-svgalib
 Summary:	xmess - a virtual machine emulator for svgalib
 Summary(pl):	xmess - emulator maszyny wirtualnej dla svgalib
-Group:		Applications/Emulator
+Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
 %description xmess-svgalib
