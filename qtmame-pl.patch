@@ -16,19 +16,6 @@
  
  ####### kdevelop will overwrite this part!!! (end)############
  
---- qtmame-2.0.2/qtmame/qtmame.pro.orig	Sun Apr 13 21:11:40 2003
-+++ qtmame-2.0.2/qtmame/qtmame.pro	Sun Apr 13 21:11:56 2003
-@@ -5,8 +5,8 @@
-   OBJECTS_DIR = .obj
- }
- TRANSLATIONS    = qtmame_us.ts \
--				qtmame_es.ts
--
-+				qtmame_es.ts \
-+						qtmame_pl.ts
- FORMS	= ventana.ui config.ui  
- TEMPLATE	=app
- CONFIG	+= qt warn_on release
 --- qtmame-2.0.2/qtmame/main.cpp.orig	Sun Apr 13 21:12:04 2003
 +++ qtmame-2.0.2/qtmame/main.cpp	Sun Apr 13 21:12:15 2003
 @@ -14,7 +14,7 @@
@@ -69,3 +56,18 @@
  }
  
  if (f.exists()) {
+--- qtmame-2.0.2/qtmame/qtmame.pro.orig	Mon Apr 14 12:20:20 2003
++++ qtmame-2.0.2/qtmame/qtmame.pro	Mon Apr 14 12:20:48 2003
+@@ -4,9 +4,9 @@
+   MOC_DIR = .moc
+   OBJECTS_DIR = .obj
+ }
+-TRANSLATIONS    = qtmame_us.ts \
+-				qtmame_es.ts
+-
++TRANSLATIONS    = qtmame/qtmame_us.ts \
++				qtmame/qtmame_es.ts \
++						qtmame/qtmame_pl.ts
+ FORMS	= ventana.ui config.ui  
+ TEMPLATE	=app
+ CONFIG	+= qt warn_on release
