@@ -2,7 +2,7 @@
 Name=xmame (SDL)
 Comment=xmame with SDL graphic output
 Comment[pl]=Emulator xmame z wyj¶ciem graficznym xSDL
-Exec=xmame.x11
+Exec=xmame.SDL
 Icon=xmame.png
 Terminal=0
 Type=Application
