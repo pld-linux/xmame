@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=xmame (x11)
-Comment=xmame with x11 graphic output
+Name=XMame (X11)
+Comment=XMame with x11 graphic output
 Comment[pl]=Emulator xmame z wyjściem graficznym x11
 Exec=xmame.x11
 Icon=xmame.png
