@@ -4,11 +4,11 @@ Summary(ko):	X윈도우 시스템을 위한 업소용 게임기 에물레이터
 Summary(pl):	Port emulatora M.A.M.E. dzia쿪j켧y w 턳odowisku Unix/X11
 Summary(pt_BR):	Emulador de Arcades X-Mame
 Name:		xmame
-Version:	0.60.1
+Version:	0.65.1
 Release:	0.1
 License:	GPL
 Group:		Applications/Emulators
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	http://x.mame.net/download/%{name}-%{version}.tar.bz2
 Source1:	%{name}.png
 Source2:	%{name}-SDL.desktop
 Source3:	%{name}-x11.desktop
@@ -164,7 +164,7 @@ Wygaszacz ekranu XMame.
 
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
-	XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
+	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=SDL \
@@ -177,7 +177,7 @@ Wygaszacz ekranu XMame.
 %ifarch %{ix86} alpha
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
-	XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
+	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=svgalib \
@@ -190,7 +190,7 @@ Wygaszacz ekranu XMame.
 
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
-	XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
+	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=x11 \
