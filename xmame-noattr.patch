@@ -1,0 +1,23 @@
+--- xmame-0.60.1/makefile.unix~	Fri Feb 21 01:39:38 2003
++++ xmame-0.60.1/makefile.unix	Fri Feb 21 01:39:38 2003
+@@ -166,13 +166,13 @@
+ # INSTALL =            /bin/install
+ INSTALL =              /usr/bin/install
+ # INSTALL =            install      # e.g., for BeOS 
+-INSTALL_PROGRAM_DIR =  $(INSTALL) -d    -o root -g bin -m  755
+-INSTALL_MAN_DIR =      $(INSTALL) -d    -o root -g 0   -m  755
+-INSTALL_DATA_DIR =     $(INSTALL) -d    -o root -g bin -m  755
+-INSTALL_PROGRAM =      $(INSTALL) -c -s -o root -g bin -m  555
+-INSTALL_PROGRAM_SUID = $(INSTALL) -c -s -o root -g bin -m 4555
+-INSTALL_MAN =          $(INSTALL) -c    -o root -g bin -m  444
+-INSTALL_DATA =         $(INSTALL) -c    -o root -g bin -m  644
++INSTALL_PROGRAM_DIR =  $(INSTALL) -d
++INSTALL_MAN_DIR =      $(INSTALL) -d
++INSTALL_DATA_DIR =     $(INSTALL) -d
++INSTALL_PROGRAM =      $(INSTALL) -c
++INSTALL_PROGRAM_SUID = $(INSTALL) -c
++INSTALL_MAN =          $(INSTALL) -c
++INSTALL_DATA =         $(INSTALL) -c
+ 
+ 
+ # *** Extra include and or library paths, sometimes needed for zlib,
