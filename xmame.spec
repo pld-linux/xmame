@@ -205,7 +205,7 @@ Wygaszacz ekranu X-Mame.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT $RPM_BUILD_ROOT{%{_bindir},%{_mandir}} \
+install -d $RPM_BUILD_ROOT $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man6} \
 	$RPM_BUILD_ROOT%{_datadir}/games/%{name}/{cab,rc} \
 	$RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Games/Arcade}
 
@@ -220,16 +220,15 @@ make -f makefile.unix XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} copycab
 
 install src/unix/doc/xmame.6 $RPM_BUILD_ROOT%{_mandir}/man6
 
-install %{SOURCE2} %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
-
-cp -r src/unix/doc/ $RPM_BUILD_ROOT
+install %{SOURCE1}		$RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE2} %{SOURCE3}	$RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files common
 %defattr(644,root,root,755)
-%doc src/unix/doc/*
+%doc doc/*
 %{_mandir}/man6/*
 %dir %{_datadir}/games/%{name}
 %dir %{_datadir}/games/%{name}/cab
