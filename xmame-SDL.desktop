@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=xmame (SDL)
 Comment=xmame with SDL graphic output
-Comment[pl]=Emulator xmame z wyj¶ciem graficznym xSDL
+Comment[pl]=Emulator xmame z wyjściem graficznym xSDL
 Exec=xmame.SDL
 Icon=xmame.png
 Terminal=0
