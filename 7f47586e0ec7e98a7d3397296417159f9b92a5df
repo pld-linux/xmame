@@ -1,0 +1,3 @@
+- added without svga and without qt bconds
+  (dunno whether there is a need for without x11/sdl)
+- added Requires qt-devel for qtmame (lrease is in qt-devel)
