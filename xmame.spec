@@ -19,7 +19,9 @@ License:	GPL
 Group:		Applications/Emulators
 #Source0Download:	http://x.mame.net/xmame-doc-7.html
 Source0:	http://x.mame.net/download/%{name}-%{version}.tar.bz2
+# Source0-md5:	b3a89afe2dcd53bb3f9f1f5d47f01dc3
 Source1:	http://lecha.homelinux.com/ingenio/archivos/%{qtmame}-%{qtmame_ver}.tar.gz
+# Source1-md5:	28fcd7859d0ad4f42091923cb2932ba2
 Source2:	%{name}-SDL.desktop
 Source3:	%{name}-x11.desktop
 Source4:	%{name}-alsa_0.5.c
