@@ -261,6 +261,10 @@ lrelease %{qtmame}-%{qtmame_ver}/qtmame/qtmame.pro
 %endif
 
 %build
+%ifnarch %{ix86}
+sed -i -e 's#-DX86_ASM##g' makefile.mame
+%endif
+
 %if %{with qt}
 cd %{qtmame}-%{qtmame_ver}
 %configure2_13
