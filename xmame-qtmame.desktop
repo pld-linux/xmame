@@ -7,4 +7,5 @@ Name=Qtmame
 Path=
 Terminal=false
 Type=Application
+Categories=Utility;Emulator;
 # vi: encoding=utf-8

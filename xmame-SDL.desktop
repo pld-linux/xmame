@@ -7,4 +7,5 @@ Icon=xmame.png
 Terminal=false
 Type=Application
 Encoding=UTF-8
+Categories=Utility;Emulator;
 # vi: encoding=utf-8
