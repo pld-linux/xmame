@@ -262,8 +262,8 @@ cd ..
         SOUND_ALSA=1 \
         SOUND_ARTS_TEIRA=1 \
         SOUND_ARTS_SMOTEK=1 \
-        SOUND_SDL=1
-#        MAME_NET=1
+        SOUND_SDL=1 \
+        XMAME_NET=1
 
 %{__make} -f makefile.unix \
 	TARGET=mess \
@@ -276,8 +276,8 @@ cd ..
         SOUND_ALSA=1 \
         SOUND_ARTS_TEIRA=1 \
         SOUND_ARTS_SMOTEK=1 \
-        SOUND_SDL=1
-#        MAME_NET=1
+        SOUND_SDL=1 \
+        XMAME_NET=1
 
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
@@ -289,8 +289,8 @@ cd ..
 	SOUND_ALSA=1 \
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
-	SOUND_SDL=1
-#	MAME_NET=1
+	SOUND_SDL=1 \
+	XMAME_NET=1
 	
 %if %{!?_without_svga:1}0
 %{__make} -f makefile.unix \
@@ -303,8 +303,8 @@ cd ..
 	SOUND_ALSA=1 \
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
-	SOUND_SDL=1
-#	MAME_NET=1
+	SOUND_SDL=1 \
+	XMAME_NET=1
 %endif 
 
 %{__make} -f makefile.unix \
@@ -317,8 +317,8 @@ cd ..
 	SOUND_ALSA=1 \
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
-	SOUND_SDL=1
-#	MAME_NET=1
+	SOUND_SDL=1 \
+	XMAME_NET=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
