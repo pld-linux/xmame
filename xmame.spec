@@ -1,3 +1,10 @@
+# _without_svga		dont build svga version 
+# _without_qt		dont build qtmame
+
+%ifnarch %{ix86} alpha
+%define		_without_svga	1
+%endif
+
 %define         qtmame		qtmame
 %define		qtmame_ver	2.0.4
 Summary:	Unix/X11 port of M.A.M.E. - arcade machine emulator
@@ -28,9 +35,8 @@ BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	alsa-driver-devel >= 0.9
 BuildRequires:	libusb-devel
-%ifarch %{ix86} alpha
-BuildRequires:	svgalib-devel
-%endif
+%{!?_without_svga:BuildRequires:	svgalib-devel}
+%{!?_without_qt:BuildRequires:	qt-devel >= 3.0}
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -192,16 +198,21 @@ Graficzny interfejs dla XMame.
 %patch2 -p1
 install %{SOURCE4} src/unix/sysdep/dsp-drivers/alsa_0.5.c
 install %{SOURCE5} src/unix/sysdep/dsp-drivers/alsa_0.9.c
+%if %{!?_without_qt:1}0
 install %{SOURCE8} %{qtmame}-%{qtmame_ver}/qtmame/qtmame_pl.ts
 lrelease %{qtmame}-%{qtmame_ver}/qtmame/qtmame.pro
+%endif
 
 %build
+%if %{!?_without_qt:1}0
 cd %{qtmame}-%{qtmame_ver}
 %configure2_13
 
 %{__make}
 
 cd ..
+%endif
+
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
@@ -213,8 +224,8 @@ cd ..
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1
-
-%ifarch %{ix86} alpha
+	
+%if %{!?_without_svga:1}0
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
@@ -226,7 +237,7 @@ cd ..
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1
-%endif
+%endif 
 
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
@@ -248,9 +259,11 @@ install -d $RPM_BUILD_ROOT $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man6} \
 	$RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Games/Arcade} \
 	$RPM_BUILD_ROOT%{_datadir}/qtmame
 install xmame.SDL $RPM_BUILD_ROOT%{_bindir}
-%ifarch %{ix86} alpha
+
+%if %{!?_without_svga:1}0
 install xmame.svgalib $RPM_BUILD_ROOT%{_bindir}
 %endif
+
 install xmame.x11 $RPM_BUILD_ROOT%{_bindir}
 install contrib/tools/xmame-screensaver $RPM_BUILD_ROOT%{_bindir}
 cp -R src/unix/cab/ $RPM_BUILD_ROOT%{_datadir}/games/%{name}
@@ -259,6 +272,8 @@ install src/unix/doc/xmame.6 $RPM_BUILD_ROOT%{_mandir}/man6
 install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
 #install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
 #install %{SOURCE3} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+
+%if %{!?_without_qt:1}0
 install %{SOURCE7} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
 
 install %{qtmame}-%{qtmame_ver}/qtmame/qtmame $RPM_BUILD_ROOT%{_bindir}
@@ -267,6 +282,7 @@ install %{qtmame}-%{qtmame_ver}/qtmame/bkground.png $RPM_BUILD_ROOT%{_datadir}/q
 install %{qtmame}-%{qtmame_ver}/qtmame/*.qm $RPM_BUILD_ROOT%{_datadir}/qtmame
 install %{qtmame}-%{qtmame_ver}/qtmame/listado020 $RPM_BUILD_ROOT%{_datadir}/qtmame
 install %{qtmame}-%{qtmame_ver}/qtmame/qtmame3.png $RPM_BUILD_ROOT%{_datadir}/qtmame
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -283,7 +299,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}.SDL
 #%{_applnkdir}/Games/Arcade/%{name}-SDL.desktop
 
-%ifarch %{ix86} alpha
+%if %{!?_without_svga:1}0
 %files svgalib
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}.svgalib
@@ -298,6 +314,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xmame-screensaver
 
+%if %{!?_without_qt:1}0
 %files qtmame
 %defattr(644,root,root,755)
 %doc %{qtmame}-%{qtmame_ver}/{AUTHORS,README,README-us,TODO,qtmame/docs/en/*.html}
@@ -305,3 +322,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/qtmame
 %{_pixmapsdir}/*
 %{_applnkdir}/Games/Arcade/%{name}-qtmame.desktop
+%endif
