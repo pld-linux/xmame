@@ -26,13 +26,13 @@ Source2:	%{name}-SDL.desktop
 Source3:	%{name}-x11.desktop
 Source4:	%{name}-alsa_0.5.c
 Source5:	%{name}-alsa_0.9.c
-Source6:        %{name}.png
-Source7:        xmame-qtmame.desktop
-Source8:        xmame-qtmame_pl.ts
-# Source9-md5:  f822a1a13f63572d2e9d510638906331
+Source6:	%{name}.png
+Source7:	xmame-qtmame.desktop
+Source8:	xmame-qtmame_pl.ts
+# Source9-md5:	f822a1a13f63572d2e9d510638906331
 Source9:	http://x.mame.net/download/%{name}-doc.pdf
 Patch0:		%{name}-alsa.patch
-Patch1:         %{qtmame}-pl.patch
+Patch1:		%{qtmame}-pl.patch
 Patch2:		%{qtmame}-version.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
@@ -196,10 +196,10 @@ Graphic interface for XMame.
 Graficzny interfejs dla XMame.
 
 %package xmess-x11
-Summary:        xmess - a virtual machine emulator for x11
-Summary(pl):    xmess - emulator maszyny wirtualnej dla x11
-Group:          Applications/Emulator
-Requires:       %{name}-common = %{version}
+Summary:	xmess - a virtual machine emulator for x11
+Summary(pl):	xmess - emulator maszyny wirtualnej dla x11
+Group:		Applications/Emulator
+Requires:	%{name}-common = %{version}
 
 %description xmess-x11
 Mess is just like mame - a virtual machine emulator, only it 
@@ -212,10 +212,10 @@ nie emuluje on automatów arcade'owych a komputery i konsole.
 Ten pakiet zawiera binaria dla x11.
 
 %package xmess-SDL
-Summary:        xmess - a virtual machine emulator for SDL
-Summary(pl):    xmess - emulator maszyny wirtualnej dla SDL
-Group:          Applications/Emulator
-Requires:       %{name}-common = %{version}
+Summary:	xmess - a virtual machine emulator for SDL
+Summary(pl):	xmess - emulator maszyny wirtualnej dla SDL
+Group:		Applications/Emulator
+Requires:	%{name}-common = %{version}
 
 %description xmess-SDL
 Mess is just like mame - a virtual machine emulator, only it
@@ -228,10 +228,10 @@ nie emuluje on automatów arcade'owych a komputery i konsole.
 Ten pakiet zawiera binaria dla SDL.
 
 %package xmess-svgalib
-Summary:        xmess - a virtual machine emulator for svgalib
-Summary(pl):    xmess - emulator maszyny wirtualnej dla svgalib
-Group:          Applications/Emulator
-Requires:       %{name}-common = %{version}
+Summary:	xmess - a virtual machine emulator for svgalib
+Summary(pl):	xmess - emulator maszyny wirtualnej dla svgalib
+Group:		Applications/Emulator
+Requires:	%{name}-common = %{version}
 
 %description xmess-svgalib
 Mess is just like mame - a virtual machine emulator, only it
