@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=Xmame Front End
+Exec=qtmame
+Icon=/usr/share/pixmaps/qtmame.png
+Name=Qtmame
+Path=
+Terminal=0
