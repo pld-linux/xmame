@@ -4,5 +4,5 @@ Exec=qtmame
 Icon=/usr/share/pixmaps/qtmame.png
 Name=Qtmame
 Path=
-Terminal=0
+Terminal=false
 Type=Application
