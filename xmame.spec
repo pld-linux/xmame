@@ -1,6 +1,8 @@
+#
+# Conditional build:
 # _without_svga		dont build svga version
 # _without_qt		dont build qtmame
-
+#
 %ifnarch %{ix86} alpha
 %define		_without_svga	1
 %endif
@@ -38,6 +40,7 @@ URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	alsa-driver-devel >= 0.9
+BuildRequires:	artsc-devel
 BuildRequires:	libusb-devel
 %{!?_without_svga:BuildRequires:	svgalib-devel}
 %{!?_without_qt:BuildRequires:	qt-devel >= 3.0}
