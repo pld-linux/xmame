@@ -10,8 +10,9 @@ Version:	0.67.2
 Release:	2
 License:	GPL
 Group:		Applications/Emulators
-Source0:	%{name}-%{version}.tar.bz2
-Source1:        %{qtmame}-%{qtmame_ver}.tar.gz
+#Source0Download:	http://x.mame.net/xmame-doc-7.html
+Source0:	http://x.mame.net/download/%{name}-%{version}.tar.bz2
+Source1:	http://lecha.homelinux.com/ingenio/archivos/%{qtmame}-%{qtmame_ver}.tar.gz
 Source2:	%{name}-SDL.desktop
 Source3:	%{name}-x11.desktop
 Source4:	%{name}-alsa_0.5.c
@@ -178,10 +179,10 @@ Provides:	qtmame
 Obsoletes:	qtmame
 
 %description qtmame
-Graphic interface for xmame
+Graphic interface for xmame.
 
 %description qtmame -l pl
-Graficzny interfejs dla xmame
+Graficzny interfejs dla xmame.
 
 %prep
 %setup -q -c -a 1
