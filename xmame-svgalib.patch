@@ -1,0 +1,30 @@
+--- xmame-0.80.1/src/unix/video-drivers/svgalib.c.orig	2004-03-07 01:01:12.000000000 +0100
++++ xmame-0.80.1/src/unix/video-drivers/svgalib.c	2004-07-06 19:55:33.015054000 +0200
+@@ -167,7 +167,9 @@
+    vga_setmode(video_mode);
+    gl_setcontextvga(video_mode);
+    text_mode = FALSE;
++#ifdef __CPU_i386
+    set_tweaked_mode();
++#endif
+ 
+    if (video_modeinfo.flags & IS_MODEX)
+       update_function=1;
+@@ -291,6 +293,7 @@
+          my_modeinfo->width, my_modeinfo->height, my_modeinfo->colors);
+    }
+    
++#ifdef __CPU_i386
+    if (use_tweak && depth == 8 && vga_hasmode(G320x200x256) &&
+        vga_hasmode(G320x240x256))
+    {
+@@ -334,7 +337,8 @@
+             tweaked_modes[i].width, tweaked_modes[i].height);
+       }
+    }
+-   
++#endif /* ifdef __CPU_i386 */
++
+    if (best_score == 0)
+    {
+       fprintf(stderr_file, "Svgalib: Couldn't find a suitable mode for a resolution of %d x %d\n",
