@@ -1,4 +1,3 @@
-# $Revision: 1.2 $
 Summary:	Unix/X11 port of M.A.M.E. - arcade machine emulator
 Summary(pl):	Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11
 Name:		xmame
@@ -16,10 +15,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define         _mandir         %{_prefix}/man
 
 %description
-Unix/X11 port of M.A.M.E. - arcade machine emulator
+Unix/X11 port of M.A.M.E. - arcade machine emulator.
 
 %description -l pl
-Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11
+Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11.
 
 %package SDL
 Summary:	xmame - SDL version
@@ -31,8 +30,9 @@ BuildRequires:	SDL-devel
 %description SDL
 Unix/X11 port of M.A.M.E. - arcade machine emulator.
 This version uses SDL for graphic output.
+
 %description SDL -l pl
-Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11
+Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11.
 Ta wersja u¿ywa bibliotek SDL dla wyj¶cia graficznego.
 
 %package svgalib
@@ -45,8 +45,9 @@ BuildRequires:  svgalib-devel
 %description svgalib
 Unix/X11 port of M.A.M.E. - arcade machine emulator.
 This version uses svgalib for graphic output.
+
 %description svgalib -l pl
-Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11
+Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11.
 Ta wersja u¿ywa bibliotek svgalib dla wyj¶cia graficznego.
 
 
@@ -62,7 +63,7 @@ Unix/X11 port of M.A.M.E. - arcade machine emulator.
 This version uses x11 for graphic output.
 
 %description x11 -l pl
-Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11
+Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11.
 Ta wersja u¿ywa x11 dla wyj¶cia graficznego.
 
 %package x11
@@ -77,7 +78,7 @@ Unix/X11 port of M.A.M.E. - arcade machine emulator.
 This version uses x11 for graphic output.
 
 %description x11 -l pl
-Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11
+Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11.
 Ta wersja zosta³a skompilowana z obs³ug± OpenGL.
 
 %prep
