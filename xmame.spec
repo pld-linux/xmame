@@ -36,6 +36,7 @@ Patch0:		%{name}-alsa.patch
 Patch1:		%{qtmame}-pl.patch
 Patch2:		%{qtmame}-version.patch
 URL:		http://x.mame.net/
+BuildRequires:	automake
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	alsa-driver-devel >= 0.9
@@ -254,6 +255,7 @@ install %{SOURCE4} src/unix/sysdep/dsp-drivers/alsa_0.5.c
 install %{SOURCE5} src/unix/sysdep/dsp-drivers/alsa_0.9.c
 install %{SOURCE9} doc/
 %if %{with qt}
+install %{_datadir}/automake/config.* %{qtmame}-%{qtmame_ver}/admin
 install %{SOURCE8} %{qtmame}-%{qtmame_ver}/qtmame/qtmame_pl.ts
 lrelease %{qtmame}-%{qtmame_ver}/qtmame/qtmame.pro
 %endif
