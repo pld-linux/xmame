@@ -31,7 +31,7 @@ Source6:	%{name}.png
 Source7:	xmame-qtmame.desktop
 Source8:	xmame-qtmame_pl.ts
 Source9:	http://x.mame.net/download/%{name}-doc.pdf
-# Source9-md5:	d6c7ecf9ffd01122a4fc970737b827d6
+# Source9-md5:	91a737b4504bbcba7a33ad1b725d3c4f
 Patch0:		%{name}-alsa.patch
 Patch1:		%{qtmame}-pl.patch
 Patch2:		%{qtmame}-version.patch
