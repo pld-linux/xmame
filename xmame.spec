@@ -5,13 +5,14 @@ Summary(pl):	Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11
 Summary(pt_BR):	Emulador de Arcades X-Mame
 Name:		xmame
 Version:	0.60.1
-Release:	1
+Release:	0.1
 License:	GPL
 Group:		Applications/Emulators
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	%{name}.png
 Source2:	%{name}-SDL.desktop
 Source3:	%{name}-x11.desktop
+Patch0:		%{name}-noattr.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
@@ -24,7 +25,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
 %description
-X-Mame the UNIX/X11 port of Mame project. It makes Mame arcade
+XMame the UNIX/X11 port of Mame project. It makes Mame arcade
 emulator available on *ix machines using the X11R6 X-Window system
 (and Linux ones using SVGAlib too).
 
@@ -36,7 +37,7 @@ have original ROM images of a supported arcade game, you can play the
 game.
 
 %description -l pl
-X-Mame to uniksowy/X-owy port projektu Mame. Pozwala uruchamiaæ
+XMame to uniksowy/X-owy port projektu Mame. Pozwala uruchamiaæ
 emulator Mame na maszynach uniksowych z X11R6 Window System (a tak¿e
 linuksowych z SVGAlibem).
 
@@ -57,12 +58,12 @@ memória, vídeo, som, etc, tornando possível que você possa jogar suas
 ROMS originais.
 
 %package common
-Summary:	Xmame - common files
-Summary(pl):	Xmame - wspólne pliki
+Summary:	XMame - common files
+Summary(pl):	XMame - wspólne pliki
 Group:		Applications/Emulators
 
 %description common
-X-Mame the UNIX/X11 port of Mame project. It makes Mame arcade
+XMame the UNIX/X11 port of Mame project. It makes Mame arcade
 emulator available on *ix machines using the X11R6 X-Window system
 (and Linux ones using SVGAlib too).
 
@@ -73,11 +74,11 @@ hardware, mem maps, video, sounds and so, making possible that if you
 have original ROM images of a supported arcade game, you can play the
 game.
 
-This package contains base, common xmame files, required to run all
-versions of xmame.
+This package contains base, common XMame files, required to run all
+versions of XMame.
 
 %description common -l pl
-X-Mame to uniksowy/X-owy port projektu Mame. Pozwala uruchamiaæ
+XMame to uniksowy/X-owy port projektu Mame. Pozwala uruchamiaæ
 emulator Mame na maszynach uniksowych z X11R6 Window System (a tak¿e
 linuksowych z SVGAlibem).
 
@@ -87,22 +88,22 @@ Ka¿dy emulator zawiera pe³ny opis sprzêtu, mapy pamiêci, obrazu,
 d¼wiêku itp., co pozwala graæ w gry pod warunkiem posiadania
 oryginalnych obrazów ROM.
 
-Ten pakiet zawiera podstawowe, wspólne pliki X-Mame, potrzebne do
+Ten pakiet zawiera podstawowe, wspólne pliki XMame, potrzebne do
 uruchamiania ka¿dej wersji emulatora.
 
 %package SDL
-Summary:	Xmame with SDL graphic output
+Summary:	XMame with SDL graphic output
 Summary(es):	X-Mame Arcade Game Emulator - SDL
-Summary(pl):	Xmame z wyj¶ciem graficznym SDL
+Summary(pl):	XMame z wyj¶ciem graficznym SDL
 Summary(pt_BR):	Emulador de Arcades X-Mame - SDL
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}
 
 %description SDL
-This package has xmame binaries compiled for SDL graphics output.
+This package has XMame binaries compiled for SDL graphics output.
 
 %description SDL -l pl
-Ten pakiet zawiera binaria X-Mame z wyj¶ciem grafiki przez SDL.
+Ten pakiet zawiera binaria XMame z wyj¶ciem grafiki przez SDL.
 
 %description SDL -l pt_BR
 X-Mame é o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
@@ -110,58 +111,54 @@ arcade emulator disponível em máquinas *ix usando o sistema X-Window
 X11R6 (e sobre Linux usando SVGAlib também).
 
 %package svgalib
-Summary:	xmame - svgalib version
+Summary:	XMame - svgalib version
 Summary(es):	X-Mame Arcade Game Emulator - svgalib
-Summary(pl):	xmame - wersja z wyj¶ciem svgalib
+Summary(pl):	XMame - wersja z wyj¶ciem svgalib
 Summary(pt_BR):	Emulador de Arcades X-Mame - svgalib
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}
 
 %description svgalib
-This package has xmame binaries compiled for svgalib graphic output.
+This package has XMame binaries compiled for svgalib graphic output.
 
 %description svgalib -l pl
-Ten pakiet zawiera binaria X-Mame z wyj¶ciem grafiki przez SVGAlib.
+Ten pakiet zawiera binaria XMame z wyj¶ciem grafiki przez SVGAlib.
 
 %description svgalib -l pt_BR
-X-Mame é o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
-arcade emulator disponível em máquinas *ix usando o sistema X11 (e
-sobre Linux usando SVGAlib também).
+X-Mame é o porte para SVGAlib do projeto Mame.
 
-%package x11
-Summary:	xmame - x11 version
+%package X11
+Summary:	XMame - X11 version
 Summary(es):	X-Mame Arcade Game Emulator - X11
-Summary(pl):	xmame - wersja z wyj¶ciem x11
+Summary(pl):	XMame - wersja z wyj¶ciem X11
 Summary(pt_BR):	Emulador de Arcades X-Mame - X11
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}
 
-%description x11
-This package has xmame binaries compiled for x11 graphic output.
+%description X11
+This package has XMame binaries compiled for X11 graphic output.
 
-%description x11 -l pl
-Ten pakiet zawiera binaria X-Mame z wyj¶ciem grafiki pod X11.
+%description X11 -l pl
+Ten pakiet zawiera binaria XMame z wyj¶ciem grafiki pod X11.
 
-%description x11 -l pt_BR
-X-Mame é o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
-arcade emulator disponível em máquinas *ix usando o sistema X-Window
-X11R6 (e sobre Linux usando SVGAlib também).
+%description X11 -l pt_BR
+X-Mame é o porte para UNIX/X11 do projeto Mame.
 
 %package screensaver
-Summary:	xmame - screensaver
-Summary(pl):	xmame - wygaszacz ekranu
+Summary:	XMame - screensaver
+Summary(pl):	XMame - wygaszacz ekranu
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}
 
 %description screensaver
-The xmame screensaver.
+The XMame screensaver.
 
 %description screensaver -l pl
-Wygaszacz ekranu X-Mame.
+Wygaszacz ekranu XMame.
 
 %prep
 %setup -q
-#%patch0 -p1
+%patch0 -p1
 
 %build
 
@@ -247,7 +244,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}.svgalib
 %endif
 
-%files x11
+%files X11
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}.x11
 %{_applnkdir}/Games/Arcade/%{name}-x11.desktop
