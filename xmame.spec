@@ -12,7 +12,7 @@ Summary(pl):	Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11
 Summary(pt_BR):	Emulador de Arcades X-Mame
 Name:		xmame
 Version:	0.80.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Emulators
 #Source0Download:	http://x.mame.net/xmame-doc-7.html
@@ -25,8 +25,8 @@ Source3:	%{name}-x11.desktop
 Source4:	%{name}-alsa_0.5.c
 Source5:	%{name}-alsa_0.9.c
 Source6:	%{name}.png
-Source7:	xmame-qtmame.desktop
-Source8:	xmame-qtmame_pl.ts
+Source7:	%{name}-qtmame.desktop
+Source8:	%{name}-qtmame_pl.ts
 Source9:	http://x.mame.net/download/%{name}-doc.pdf
 # Source9-md5:	650c7907d5b51d5e713593bf00b2db39
 Patch0:		%{name}-alsa.patch
@@ -361,7 +361,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man6} \
 	$RPM_BUILD_ROOT%{_datadir}/games/%{name}/{cab,rc} \
-	$RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Games/Arcade} \
+	$RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}} \
 	$RPM_BUILD_ROOT%{_datadir}/qtmame
 install xmame.SDL $RPM_BUILD_ROOT%{_bindir}
 
@@ -378,11 +378,11 @@ cp -R src/unix/cab/ $RPM_BUILD_ROOT%{_datadir}/games/%{name}
 
 install src/unix/doc/xmame.6 $RPM_BUILD_ROOT%{_mandir}/man6
 install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
-#install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
-#install %{SOURCE3} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE3} $RPM_BUILD_ROOT%{_desktopdir}
 
 %if %{with qt}
-install %{SOURCE7} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{SOURCE7} $RPM_BUILD_ROOT%{_desktopdir}
 
 install %{qtmame}-%{qtmame_ver}/qtmame/qtmame $RPM_BUILD_ROOT%{_bindir}
 install %{qtmame}-%{qtmame_ver}/qtmame/qtmame.png $RPM_BUILD_ROOT%{_pixmapsdir}
@@ -405,7 +405,7 @@ rm -rf $RPM_BUILD_ROOT
 %files SDL
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}.SDL
-#%{_applnkdir}/Games/Arcade/%{name}-SDL.desktop
+%{_desktopdir}/%{name}-SDL.desktop
 
 %if %{with svga}
 %files svgalib
@@ -416,7 +416,7 @@ rm -rf $RPM_BUILD_ROOT
 %files x11
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}.x11
-#%{_applnkdir}/Games/Arcade/%{name}-x11.desktop
+%{_desktopdir}/%{name}-x11.desktop
 
 %files screensaver
 %defattr(644,root,root,755)
@@ -429,7 +429,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/qtmame
 %{_datadir}/qtmame
 %{_pixmapsdir}/*
-%{_applnkdir}/Games/Arcade/%{name}-qtmame.desktop
+%{_desktopdir}/%{name}-qtmame.desktop
 %endif
 
 %files xmess-x11
