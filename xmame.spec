@@ -35,7 +35,7 @@ Patch2:		%{qtmame}-version.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
-#BuildRequires:	alsa-driver-devel >= 0.9
+BuildRequires:	alsa-driver-devel >= 0.9
 BuildRequires:	libusb-devel
 %{!?_without_svga:BuildRequires:	svgalib-devel}
 %{!?_without_qt:BuildRequires:	qt-devel >= 3.0}
