@@ -1,0 +1,71 @@
+--- qtmame-2.0.2/qtmame/Makefile.in.orig	Sun Apr 13 21:10:47 2003
++++ qtmame-2.0.2/qtmame/Makefile.in	Sun Apr 13 21:11:30 2003
+@@ -233,13 +233,13 @@
+ qtmame_SOURCES=configi.cpp  ventanai.cpp  main.cpp  config.cpp ventana.cpp
+ SOURCES = configi.cpp ventanai.cpp main.cpp 
+ INTERFACES = config.ui ventana.ui 
+-TRANSLATIONS = qtmame_us.ts qtmame_es.ts 
++TRANSLATIONS = qtmame_us.ts qtmame_es.ts qtmame_pl.ts 
+ KDE_OPTIONS = qtonly
+ qtmame_LDADD = $(LIB_QPE) $(LIB_QT) $(LIBSOCKET)
+ 
+ SUBDIRS = docs 
+ 
+-EXTRA_DIST = main.cpp ventana.ui ventanai.cpp ventanai.h configi.h config.ui configi.cpp imagenes.h qtmame3.png qtmame.png qtmame.pro qtmame_es.ts qtmame_us.ts qtmame_us.qm qtmame_es.qm Qtmame.desktop qtmame-us bkground.png listado020 
++EXTRA_DIST = main.cpp ventana.ui ventanai.cpp ventanai.h configi.h config.ui configi.cpp imagenes.h qtmame3.png qtmame.png qtmame.pro qtmame_es.ts qtmame_us.ts qtmame_pl.ts qtmame_us.qm qtmame_es.qm qtmame_pl.qm Qtmame.desktop qtmame-us bkground.png listado020 
+ 
+ ####### kdevelop will overwrite this part!!! (end)############
+ 
+--- qtmame-2.0.2/qtmame/qtmame.pro.orig	Sun Apr 13 21:11:40 2003
++++ qtmame-2.0.2/qtmame/qtmame.pro	Sun Apr 13 21:11:56 2003
+@@ -5,8 +5,8 @@
+   OBJECTS_DIR = .obj
+ }
+ TRANSLATIONS    = qtmame_us.ts \
+-				qtmame_es.ts
+-
++				qtmame_es.ts \
++						qtmame_pl.ts
+ FORMS	= ventana.ui config.ui  
+ TEMPLATE	=app
+ CONFIG	+= qt warn_on release
+--- qtmame-2.0.2/qtmame/main.cpp.orig	Sun Apr 13 21:12:04 2003
++++ qtmame-2.0.2/qtmame/main.cpp	Sun Apr 13 21:12:15 2003
+@@ -14,7 +14,7 @@
+ 
+         // translation file for application strings
+         QTranslator myapp( 0 );
+-        myapp.load( QString( "/usr/local/share/qtmame/qtmame_" ) + QTextCodec::locale(), "." );
++        myapp.load( QString( "/usr/share/qtmame/qtmame_" ) + QTextCodec::locale(), "." );
+         app.installTranslator( &myapp );
+ 
+       ventanai m;
+--- qtmame-2.0.2/qtmame/ventanai.cpp.orig	Sun Apr 13 23:42:44 2003
++++ qtmame-2.0.2/qtmame/ventanai.cpp	Sun Apr 13 23:43:10 2003
+@@ -148,7 +148,7 @@
+ 
+ //imagen fondo
+ QString iFondo;
+-iFondo=conf.readEntry( "/qtmame/general/imagenFondo", "/usr/local/share/qtmame/bkground.png" );
++iFondo=conf.readEntry( "/qtmame/general/imagenFondo", "/usr/share/qtmame/bkground.png" );
+ QFile fF(iFondo);
+ if (fF.exists()) {
+        QPixmap img(iFondo);
+@@ -456,7 +456,7 @@
+                                    previa->setPixmap(img);
+                               }
+                               else{
+-                                   QPixmap img("/usr/local/share/qtmame/qtmame3.png");
++                                   QPixmap img("/usr/share/qtmame/qtmame3.png");
+                                    previa->setPixmap(img);
+ 
+                               }
+@@ -537,7 +537,7 @@
+ QFile f(home + "/.qtmame/listado020");
+ if (!f.exists() ){
+ //ATENCION CAMBIAR ACA SI CAMBIA LA VERSION
+-     f.setName("/usr/local/share/qtmame/listado020");
++     f.setName("/usr/share/qtmame/listado020");
+ }
+ 
+ if (f.exists()) {
