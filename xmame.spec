@@ -9,8 +9,7 @@ Source0:	%{name}-%{version}.tar.bz2
 Source1:        %{name}.png
 Source2:	%{name}-SDL.desktop
 Source3:	%{name}-x11.desktop
-
-URL:		http://x.mame.net
+URL:		http://x.mame.net/
 BuildRequires:	alsa-driver-devel XFree86-devel zlib-devel
 #Requires:	
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,10 +28,6 @@ emulators. Each arcade emulator contains a full description about
 hardware, mem maps, video, sounds and so, making possible that if
 you have original ROM images of a supported arcade game, you can
 play the game.
-
-%description -l pl
-Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11.
-
 
 %package common
 Summary:        Xmame - common files
@@ -56,9 +51,6 @@ play the game.
 
 This package contains base xmame files, reqiuired or not to run xmame. ;)
 
-%description common -l pl
-...
-
 %package SDL
 Summary:	Xmame with SDL graphic output
 Summary(pl):	Xmame z wyj¶ciem graficznym SDL
@@ -80,10 +72,6 @@ you have original ROM images of a supported arcade game, you can
 play the game.
 
 This package has xmame binaries compiled for SDL graphics output.
-
-%description SDL -l pl
-Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11.
-Ta wersja u¿ywa bibliotek SDL dla wyj¶cia graficznego.
 
 %package svgalib
 Summary:        xmame - svgalib version
@@ -107,9 +95,6 @@ play the game.
 
 This package has xmame binaries compiled for svgalib graphic output.
 
-%description svgalib -l pl
-...
-
 %package x11 
 Summary:        xmame - x11 version
 Summary(pl):    xmame - wersja z wyj¶ciem x11
@@ -131,9 +116,6 @@ you have original ROM images of a supported arcade game, you can
 play the game.
 
 This package has xmame binaries compiled for x11 graphic output.
-
-%description x11 -l pl
-...
 
 %package screensaver
 Summary:        xmame - screensaver
@@ -207,8 +189,6 @@ install src/unix/doc/xmame.6 $RPM_BUILD_ROOT%{_mandir}/man6
 install contrib/tools/xmame-screensaver $RPM_BUILD_ROOT%{_bindir}
 
 make -f makefile.unix XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} copycab
-
-
 
 cp -r src/unix/doc/ $RPM_BUILD_ROOT
 
