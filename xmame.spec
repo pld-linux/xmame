@@ -3,9 +3,6 @@
 %bcond_without	svga	# don't build svga version
 %bcond_without	qt	# don't build qtmame
 #
-%ifnarch %{ix86} alpha ppc
-%undefine      	with_svga
-%endif
 %define         qtmame		qtmame
 %define		qtmame_ver	2.0.4
 Summary:	Unix/X11 port of M.A.M.E. - arcade machine emulator
@@ -120,7 +117,7 @@ Summary(es):	XMame Arcade Game Emulator - SDL
 Summary(pl):	XMame z wyj¶ciem graficznym SDL
 Summary(pt_BR):	Emulador de Arcades XMame - SDL
 Group:		Applications/Emulators
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{version}-%{release}
 
 %description SDL
 This package has XMame binaries compiled for SDL graphics output.
@@ -139,7 +136,7 @@ Summary(es):	XMame Arcade Game Emulator - svgalib
 Summary(pl):	XMame - wersja z wyj¶ciem svgalib
 Summary(pt_BR):	Emulador de Arcades XMame - svgalib
 Group:		Applications/Emulators
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{version}-%{release}
 
 %description svgalib
 This package has XMame binaries compiled for svgalib graphic output.
@@ -158,7 +155,7 @@ Summary(es):	XMame Arcade Game Emulator - X11
 Summary(pl):	XMame - wersja z wyj¶ciem x11
 Summary(pt_BR):	Emulador de Arcades XMame - X11
 Group:		Applications/Emulators
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{version}-%{release}
 
 %description x11
 This package has XMame binaries compiled for x11 graphic output.
@@ -175,7 +172,7 @@ X11R6 (e sobre Linux usando SVGAlib também).
 Summary:	XMame - screensaver
 Summary(pl):	XMame - wygaszacz ekranu
 Group:		Applications/Emulators
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{version}-%{release}
 
 %description screensaver
 The XMame screensaver.
@@ -188,7 +185,7 @@ Summary:	Qtmame - graphic interface for XMame
 Summary(pl):	Qtmame - graficzny interfejs dla XMame
 Group:		Applications/Emulator
 URL:		http://move.to/ingenio
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{version}-%{release}
 Provides:	qtmame
 Obsoletes:	qtmame
 
@@ -202,7 +199,7 @@ Graficzny interfejs dla XMame.
 Summary:	xmess - a virtual machine emulator for x11
 Summary(pl):	xmess - emulator maszyny wirtualnej dla x11
 Group:		Applications/Emulator
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{version}-%{release}
 
 %description xmess-x11
 Mess is just like mame - a virtual machine emulator, only it
@@ -218,7 +215,7 @@ Ten pakiet zawiera binaria dla x11.
 Summary:	xmess - a virtual machine emulator for SDL
 Summary(pl):	xmess - emulator maszyny wirtualnej dla SDL
 Group:		Applications/Emulator
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{version}-%{release}
 
 %description xmess-SDL
 Mess is just like mame - a virtual machine emulator, only it
@@ -234,7 +231,7 @@ Ten pakiet zawiera binaria dla SDL.
 Summary:	xmess - a virtual machine emulator for svgalib
 Summary(pl):	xmess - emulator maszyny wirtualnej dla svgalib
 Group:		Applications/Emulator
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common = %{version}-%{release}
 
 %description xmess-svgalib
 Mess is just like mame - a virtual machine emulator, only it
