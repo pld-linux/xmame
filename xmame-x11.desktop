@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=XMame (X11)
-Comment=XMame with x11 graphic output
-Comment[pl]=Emulator xmame z wyjściem graficznym x11
-Exec=xmame.x11
-Icon=xmame.png
-Terminal=0
-Type=Application
-# vi: encoding=utf-8
