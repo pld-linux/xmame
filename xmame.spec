@@ -34,7 +34,7 @@ Source8:        xmame-qtmame_pl.ts
 Source9:	http://x.mame.net/download/%{name}-doc.pdf
 Patch0:		%{name}-alsa.patch
 Patch1:         %{qtmame}-pl.patch
-atch2:		%{qtmame}-version.patch
+Patch2:		%{qtmame}-version.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
