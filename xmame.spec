@@ -1,6 +1,6 @@
 # _without_svga		dont build svga version 
 # _without_qt		dont build qtmame
-# TODO - xmess
+# TODO - xmame-xmess-svga as bcond
 
 %ifnarch %{ix86} alpha
 %define		_without_svga	1
@@ -196,6 +196,38 @@ Graphic interface for XMame.
 %description qtmame -l pl
 Graficzny interfejs dla XMame.
 
+%package xmess-x11
+Summary:        xmess - a virtual machine emulator for x11
+Summary(pl):    xmess - emulator maszyny wirtualnej dla x11
+Group:          Applications/Emulator
+Requires:       %{name}-common = %{version}
+
+%description xmess-x11
+Mess is just like mame - a virtual machine emulator, only it 
+doesn't emulate arcade machines but rather computers and consoles.
+This package contains binaries for x11.
+
+%description xmess-x11 -l pl
+Mess to to samo co mame - emulator maszyny wirtualnej, tyle ¿e
+nie emuluje on automatów arcade'owych a komputery i konsole.
+Ten pakiet zawiera binaria dla x11.
+
+%package xmess-SDL
+Summary:        xmess - a virtual machine emulator for SDL
+Summary(pl):    xmess - emulator maszyny wirtualnej dla SDL
+Group:          Applications/Emulator
+Requires:       %{name}-common = %{version}
+
+%description xmess-SDL
+Mess is just like mame - a virtual machine emulator, only it
+doesn't emulate arcade machines but rather computers and consoles.
+This package contains binaries for SDL.
+
+%description xmess-SDL -l pl
+Mess to to samo co mame - emulator maszyny wirtualnej, tyle ¿e
+nie emuluje on automatów arcade'owych a komputery i konsole.
+Ten pakiet zawiera binaria dla SDL.
+
 %prep
 %setup -q -a1
 #%patch0 -p1
@@ -218,6 +250,34 @@ cd %{qtmame}-%{qtmame_ver}
 
 cd ..
 %endif
+
+%{__make} -f makefile.unix \
+	TARGET=mess \
+        PREFIX=%{_prefix} \
+        XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
+        CC="%{__cc}" CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
+        LD="%{__cc} %{rpmldflags}" \
+        DISPLAY_METHOD=SDL \
+        SOUND_ESOUND=1 \
+        SOUND_ALSA=1 \
+        SOUND_ARTS_TEIRA=1 \
+        SOUND_ARTS_SMOTEK=1 \
+        SOUND_SDL=1 \
+        MAME_NET=1
+
+%{__make} -f makefile.unix \
+	TARGET=mess \
+        PREFIX=%{_prefix} \
+        XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
+        CC="%{__cc}" CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
+        LD="%{__cc} %{rpmldflags}" \
+        DISPLAY_METHOD=x11 \
+        SOUND_ESOUND=1 \
+        SOUND_ALSA=1 \
+        SOUND_ARTS_TEIRA=1 \
+        SOUND_ARTS_SMOTEK=1 \
+        SOUND_SDL=1 \
+        MAME_NET=1
 
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
@@ -274,6 +334,8 @@ install xmame.svgalib $RPM_BUILD_ROOT%{_bindir}
 %endif
 
 install xmame.x11 $RPM_BUILD_ROOT%{_bindir}
+install xmess.x11 $RPM_BUILD_ROOT%{_bindir}
+install xmess.SDL $RPM_BUILD_ROOT%{_bindir}
 install contrib/tools/xmame-screensaver $RPM_BUILD_ROOT%{_bindir}
 cp -R src/unix/cab/ $RPM_BUILD_ROOT%{_datadir}/games/%{name}
 
@@ -332,3 +394,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*
 %{_applnkdir}/Games/Arcade/%{name}-qtmame.desktop
 %endif
+
+%files xmess-x11
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/xmess.x11
+
+%files xmess-SDL
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/xmess.SDL
