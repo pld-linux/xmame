@@ -3,7 +3,7 @@
 %bcond_without	svga	# don't build svga version
 %bcond_without	qt	# don't build qtmame
 #
-%define         qtmame		qtmame
+%define		qtmame		qtmame
 %define		qtmame_ver	2.0.4
 Summary:	Unix/X11 port of M.A.M.E. - arcade machine emulator
 Summary(es):	X-Mame Arcade Game Emulator
