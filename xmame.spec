@@ -11,13 +11,13 @@ Summary(ko):	X윈도우 시스템을 위한 업소용 게임기 에물레이터
 Summary(pl):	Port emulatora M.A.M.E. dzia쿪j켧y w 턳odowisku Unix/X11
 Summary(pt_BR):	Emulador de Arcades X-Mame
 Name:		xmame
-Version:	0.80.1
-Release:	4
+Version:	0.84.1
+Release:	0.1
 License:	GPL
 Group:		Applications/Emulators
 #Source0Download:	http://x.mame.net/xmame-doc-7.html
 Source0:	http://x.mame.net/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	f2e51b0a695ee508ea76df86dd426730
+# Source0-md5:	4fdc7726024d4d57d1a6b08a20ab0df9
 Source1:	http://lecha.homelinux.com/ingenio/archivos/%{qtmame}-%{qtmame_ver}.tar.gz
 # Source1-md5:	28fcd7859d0ad4f42091923cb2932ba2
 Source2:	%{name}-SDL.desktop
@@ -28,7 +28,7 @@ Source6:	%{name}.png
 Source7:	%{name}-qtmame.desktop
 Source8:	%{name}-qtmame_pl.ts
 Source9:	http://x.mame.net/download/%{name}-doc.pdf
-# Source9-md5:	650c7907d5b51d5e713593bf00b2db39
+# Source9-md5:	b38c45b8ea4f520bdf0ad1ee6cce732a
 Patch0:		%{name}-alsa.patch
 Patch1:		%{qtmame}-pl.patch
 Patch2:		%{qtmame}-version.patch
