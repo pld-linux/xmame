@@ -1,0 +1,144 @@
+diff -urN xmame-0.60.1/makefile.unix-sdl xmame-pld/makefile.unix-sdl
+--- xmame-0.60.1/makefile.unix-sdl	Thu Jan  1 01:00:00 1970
++++ xmame-pld/makefile.unix-sdl	Wed Jun 19 00:20:11 2002
+@@ -0,0 +1,44 @@
++TARGET = mame
++CC	= gcc
++CFLAGS    = -O -Wall
++IL	= '-DINLINE=static __inline__'
++LD	= $(CC) -Wl,-s
++SEPARATE_LIBM = 1
++RANLIB = ranlib
++INSTALL =              /usr/bin/install
++INSTALL_PROGRAM_DIR =  $(INSTALL) -d    -o root -g bin -m  755
++INSTALL_MAN_DIR =      $(INSTALL) -d    -o root -g 0   -m  755
++INSTALL_DATA_DIR =     $(INSTALL) -d    -o root -g bin -m  755
++INSTALL_PROGRAM =      $(INSTALL) -c -s -o root -g bin -m  555
++INSTALL_PROGRAM_SUID = $(INSTALL) -c -s -o root -g bin -m 4555
++INSTALL_MAN =          $(INSTALL) -c    -o root -g bin -m  444
++INSTALL_DATA =         $(INSTALL) -c    -o root -g bin -m  644
++HAVE_GETTIMEOFDAY = 1
++ifndef PREFIX
++PREFIX = /usr/local
++endif
++BINDIR = $(PREFIX)/bin
++MANDIR = $(PREFIX)/man/man6
++XMAMEROOT = $(PREFIX)/lib/x$(TARGET)
++MY_CPU = i386
++ARCH  = linux
++SOUND_ESOUND = 1
++SOUND_ALSA = 1
++SOUND_ARTS_TEIRA = 1
++SOUND_ARTS_SMOTEK = 1
++SOUND_SDL= 1
++DISPLAY_METHOD = SDL
++X11_MITSHM = 1
++X11INC		= -I/usr/X11R6/include
++X11LIB		= -L/usr/X11R6/lib
++X11_JOYNAME = "Joystick"
++GLLIBS= -ldl
++GLCFLAGS= -D_X11_
++ASM_STRIP = src/unix/contrib/porting/strip_
++NASM_FMT  = -f elf
++ifdef MAME_DEBUG
++NAME=x$(TARGET)d
++else
++NAME=x$(TARGET)
++endif
++include src/unix/unix.mak
+diff -urN xmame-0.60.1/makefile.unix-svgalib xmame-pld/makefile.unix-svgalib
+--- xmame-0.60.1/makefile.unix-svgalib	Thu Jan  1 01:00:00 1970
++++ xmame-pld/makefile.unix-svgalib	Mon Jun 17 22:49:21 2002
+@@ -0,0 +1,44 @@
++TARGET = mame
++CC	= gcc
++CFLAGS    = -O -Wall
++IL	= '-DINLINE=static __inline__'
++LD	= $(CC) -Wl,-s
++SEPARATE_LIBM = 1
++RANLIB = ranlib
++INSTALL =              /usr/bin/install
++INSTALL_PROGRAM_DIR =  $(INSTALL) -d    -o root -g bin -m  755
++INSTALL_MAN_DIR =      $(INSTALL) -d    -o root -g 0   -m  755
++INSTALL_DATA_DIR =     $(INSTALL) -d    -o root -g bin -m  755
++INSTALL_PROGRAM =      $(INSTALL) -c -s -o root -g bin -m  555
++INSTALL_PROGRAM_SUID = $(INSTALL) -c -s -o root -g bin -m 4555
++INSTALL_MAN =          $(INSTALL) -c    -o root -g bin -m  444
++INSTALL_DATA =         $(INSTALL) -c    -o root -g bin -m  644
++HAVE_GETTIMEOFDAY = 1
++ifndef PREFIX
++PREFIX = /usr/local
++endif
++BINDIR = $(PREFIX)/bin
++MANDIR = $(PREFIX)/man/man6
++XMAMEROOT = $(PREFIX)/lib/x$(TARGET)
++MY_CPU = i386
++ARCH  = linux
++SOUND_ESOUND = 1
++SOUND_ALSA = 1
++SOUND_ARTS_TEIRA = 1
++SOUND_ARTS_SMOTEK = 1
++SOUND_SDL= 1
++DISPLAY_METHOD = svgalib
++X11_MITSHM = 1
++X11INC		= -I/usr/X11R6/include
++X11LIB		= -L/usr/X11R6/lib
++X11_JOYNAME = "Joystick"
++GLLIBS= -ldl
++GLCFLAGS= -D_X11_
++ASM_STRIP = src/unix/contrib/porting/strip_
++NASM_FMT  = -f elf
++ifdef MAME_DEBUG
++NAME=x$(TARGET)d
++else
++NAME=x$(TARGET)
++endif
++include src/unix/unix.mak
+diff -urN xmame-0.60.1/makefile.unix-x11 xmame-pld/makefile.unix-x11
+--- xmame-0.60.1/makefile.unix-x11	Thu Jan  1 01:00:00 1970
++++ xmame-pld/makefile.unix-x11	Mon Jun 17 22:49:56 2002
+@@ -0,0 +1,44 @@
++TARGET = mame
++CC	= gcc
++CFLAGS    = -O -Wall
++IL	= '-DINLINE=static __inline__'
++LD	= $(CC) -Wl,-s
++SEPARATE_LIBM = 1
++RANLIB = ranlib
++INSTALL =              /usr/bin/install
++INSTALL_PROGRAM_DIR =  $(INSTALL) -d    -o root -g bin -m  755
++INSTALL_MAN_DIR =      $(INSTALL) -d    -o root -g 0   -m  755
++INSTALL_DATA_DIR =     $(INSTALL) -d    -o root -g bin -m  755
++INSTALL_PROGRAM =      $(INSTALL) -c -s -o root -g bin -m  555
++INSTALL_PROGRAM_SUID = $(INSTALL) -c -s -o root -g bin -m 4555
++INSTALL_MAN =          $(INSTALL) -c    -o root -g bin -m  444
++INSTALL_DATA =         $(INSTALL) -c    -o root -g bin -m  644
++HAVE_GETTIMEOFDAY = 1
++ifndef PREFIX
++PREFIX = /usr/local
++endif
++BINDIR = $(PREFIX)/bin
++MANDIR = $(PREFIX)/man/man6
++XMAMEROOT = $(PREFIX)/lib/x$(TARGET)
++MY_CPU = i386
++ARCH  = linux
++SOUND_ESOUND = 1
++SOUND_ALSA = 1
++SOUND_ARTS_TEIRA = 1
++SOUND_ARTS_SMOTEK = 1
++SOUND_SDL= 1
++DISPLAY_METHOD = x11
++X11_MITSHM = 1
++X11INC		= -I/usr/X11R6/include
++X11LIB		= -L/usr/X11R6/lib
++X11_JOYNAME = "Joystick"
++GLLIBS= -ldl
++GLCFLAGS= -D_X11_
++ASM_STRIP = src/unix/contrib/porting/strip_
++NASM_FMT  = -f elf
++ifdef MAME_DEBUG
++NAME=x$(TARGET)d
++else
++NAME=x$(TARGET)
++endif
++include src/unix/unix.mak
