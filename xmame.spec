@@ -1,5 +1,5 @@
 %define         qtmame		qtmame
-%define		qtmame_ver	2.0.2
+%define		qtmame_ver	2.0.4
 Summary:	Unix/X11 port of M.A.M.E. - arcade machine emulator
 Summary(es):	X-Mame Arcade Game Emulator
 Summary(ko):	X윈도우 시스템을 위한 업소용 게임기 에물레이터
@@ -22,6 +22,7 @@ Source7:        xmame-qtmame.desktop
 Source8:        xmame-qtmame_pl.ts
 Patch0:		%{name}-alsa.patch
 Patch1:         %{qtmame}-pl.patch
+Patch2:		%{qtmame}-version.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
@@ -188,6 +189,7 @@ Graficzny interfejs dla XMame.
 %setup -q -a1
 #%patch0 -p1
 %patch1 -p1
+%patch2 -p1
 install %{SOURCE4} src/unix/sysdep/dsp-drivers/alsa_0.5.c
 install %{SOURCE5} src/unix/sysdep/dsp-drivers/alsa_0.9.c
 install %{SOURCE8} %{qtmame}-%{qtmame_ver}/qtmame/qtmame_pl.ts
