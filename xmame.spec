@@ -1,4 +1,4 @@
-# _without_svga		dont build svga version 
+# _without_svga		dont build svga version
 # _without_qt		dont build qtmame
 
 %ifnarch %{ix86} alpha
@@ -202,7 +202,7 @@ Group:		Applications/Emulator
 Requires:	%{name}-common = %{version}
 
 %description xmess-x11
-Mess is just like mame - a virtual machine emulator, only it 
+Mess is just like mame - a virtual machine emulator, only it
 doesn't emulate arcade machines but rather computers and consoles.
 This package contains binaries for x11.
 
@@ -322,7 +322,7 @@ cd ..
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
 	XMAME_NET=1
-	
+
 %if %{!?_without_svga:1}0
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
@@ -336,7 +336,7 @@ cd ..
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
 	XMAME_NET=1
-%endif 
+%endif
 
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
