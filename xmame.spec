@@ -42,6 +42,7 @@ BuildRequires:	automake
 BuildRequires:	libusb-devel
 %{?with_svga:BuildRequires:	svgalib-devel}
 %{?with_qt:BuildRequires:	qt-devel >= 3.0}
+%{?with_qt:BuildRequires:	qt-linguist >= 3.0}
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
