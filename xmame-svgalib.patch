@@ -1,56 +1,29 @@
---- xmame-0.80.1/src/unix/video-drivers/svgalib.c.orig	2004-03-07 01:01:12.000000000 +0100
-+++ xmame-0.80.1/src/unix/video-drivers/svgalib.c	2004-07-06 19:55:33.015054000 +0200
-@@ -167,7 +167,9 @@
-    vga_setmode(video_mode);
-    gl_setcontextvga(video_mode);
-    text_mode = FALSE;
+diff -ur xmame-0.86.orig/src/unix/video-drivers/svgalib.c xmame-0.86/src/unix/video-drivers/svgalib.c
+--- xmame-0.86.orig/src/unix/video-drivers/svgalib.c	2004-08-26 03:44:50.000000000 +0200
++++ xmame-0.86/src/unix/video-drivers/svgalib.c	2004-09-04 21:46:36.872682816 +0200
+@@ -154,7 +154,9 @@
+ 	vga_setmode(video_mode);
+ 	gl_setcontextvga(video_mode);
+ 	text_mode = FALSE;
 +#ifdef __CPU_i386
-    set_tweaked_mode();
+ 	set_tweaked_mode();
 +#endif
  
-    if (video_modeinfo.flags & IS_MODEX)
-       update_function=1;
-@@ -291,6 +293,7 @@
-          my_modeinfo->width, my_modeinfo->height, my_modeinfo->colors);
-    }
-    
+ 	if (video_modeinfo.flags & IS_MODEX)
+ 		update_function=1;
+@@ -279,6 +281,7 @@
+ 				my_modeinfo->width, my_modeinfo->height, my_modeinfo->colors);
+ 	}
+ 
 +#ifdef __CPU_i386
-    if (use_tweak && depth == 8 && vga_hasmode(G320x200x256) &&
-        vga_hasmode(G320x240x256))
-    {
-@@ -334,7 +337,8 @@
-             tweaked_modes[i].width, tweaked_modes[i].height);
-       }
-    }
--   
+ 	if (use_tweak && depth == 8 && vga_hasmode(G320x200x256) &&
+ 			vga_hasmode(G320x240x256))
+ 	{
+@@ -322,6 +325,7 @@
+ 					tweaked_modes[i].width, tweaked_modes[i].height);
+ 		}
+ 	}
 +#endif /* ifdef __CPU_i386 */
-+
-    if (best_score == 0)
-    {
-       fprintf(stderr_file, "Svgalib: Couldn't find a suitable mode for a resolution of %d x %d\n",
---- xmame-0.80.1/src/unix/video-drivers/svgainput.c.orig	2004-03-07 01:01:12.000000000 +0100
-+++ xmame-0.80.1/src/unix/video-drivers/svgainput.c	2004-07-07 15:20:31.000000000 +0200
-@@ -241,11 +241,15 @@
-    acquire_function = acquire_func;
-    
-    /* newer svgalib's use different signals */
-+   /* but svgalib 1.9.x uses SIGUSR[12] again */
-+#if 0
-    if (vga_setmode(-1)<0x1410)
-    {
-       fprintf(stderr_file, "info: svgalib version older then 1.4.1 detected, using old style signals\n");
-+#endif
-       release_signal = SIGUSR1;
-       acquire_signal = SIGUSR2;
-+#if 0
-    }
-    else
-    {
-@@ -253,6 +257,7 @@
-       release_signal = SIGPROF;
-       acquire_signal = SIGUNUSED;
-    }
-+#endif
-   
-    /* catch console switch signals to enable / disable the vga pass through */
-    memset(&release_sa, 0, sizeof(struct sigaction));
+ 
+ 	if (best_score == 0)
+ 	{
