@@ -262,7 +262,7 @@ cd ..
         SOUND_ALSA=1 \
         SOUND_ARTS_TEIRA=1 \
         SOUND_ARTS_SMOTEK=1 \
-        SOUND_SDL=1 \
+        SOUND_SDL=1
 #        MAME_NET=1
 
 %{__make} -f makefile.unix \
@@ -276,7 +276,7 @@ cd ..
         SOUND_ALSA=1 \
         SOUND_ARTS_TEIRA=1 \
         SOUND_ARTS_SMOTEK=1 \
-        SOUND_SDL=1 \
+        SOUND_SDL=1
 #        MAME_NET=1
 
 %{__make} -f makefile.unix \
@@ -289,7 +289,7 @@ cd ..
 	SOUND_ALSA=1 \
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
-	SOUND_SDL=1 \
+	SOUND_SDL=1
 #	MAME_NET=1
 	
 %if %{!?_without_svga:1}0
@@ -303,7 +303,7 @@ cd ..
 	SOUND_ALSA=1 \
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
-	SOUND_SDL=1 \
+	SOUND_SDL=1
 #	MAME_NET=1
 %endif 
 
@@ -317,7 +317,7 @@ cd ..
 	SOUND_ALSA=1 \
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
-	SOUND_SDL=1 \
+	SOUND_SDL=1
 #	MAME_NET=1
 
 %install
