@@ -185,22 +185,21 @@ Graphic interface for xmame.
 Graficzny interfejs dla xmame.
 
 %prep
-%setup -q -c -a 1
+%setup -q -a1
 #%patch0 -p1
 %patch1 -p1
-install %{SOURCE4} %{name}-%{version}/src/unix/sysdep/dsp-drivers/alsa_0.5.c
-install %{SOURCE5} %{name}-%{version}/src/unix/sysdep/dsp-drivers/alsa_0.9.c
+install %{SOURCE4} src/unix/sysdep/dsp-drivers/alsa_0.5.c
+install %{SOURCE5} src/unix/sysdep/dsp-drivers/alsa_0.9.c
 install %{SOURCE8} %{qtmame}-%{qtmame_ver}/qtmame/qtmame_pl.ts
 lrelease %{qtmame}-%{qtmame_ver}/qtmame/qtmame.pro
 
 %build
-
 cd %{qtmame}-%{qtmame_ver}
-%configure2_13 \
-        --prefix=$RPM_BUILD_ROOT
+%configure2_13
+
 %{__make}
 
-cd ../%{name}-%{version}
+cd ..
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
@@ -246,15 +245,15 @@ install -d $RPM_BUILD_ROOT $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man6} \
 	$RPM_BUILD_ROOT%{_datadir}/games/%{name}/{cab,rc} \
 	$RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Games/Arcade} \
 	$RPM_BUILD_ROOT%{_datadir}/qtmame
-install %{name}-%{version}/xmame.SDL $RPM_BUILD_ROOT%{_bindir}
+install xmame.SDL $RPM_BUILD_ROOT%{_bindir}
 %ifarch %{ix86} alpha
-install %{name}-%{version}/xmame.svgalib $RPM_BUILD_ROOT%{_bindir}
+install xmame.svgalib $RPM_BUILD_ROOT%{_bindir}
 %endif
-install %{name}-%{version}/xmame.x11 $RPM_BUILD_ROOT%{_bindir}
-install %{name}-%{version}/contrib/tools/xmame-screensaver $RPM_BUILD_ROOT%{_bindir}
-cp -R %{name}-%{version}/src/unix/cab/ $RPM_BUILD_ROOT%{_datadir}/games/%{name}
+install xmame.x11 $RPM_BUILD_ROOT%{_bindir}
+install contrib/tools/xmame-screensaver $RPM_BUILD_ROOT%{_bindir}
+cp -R src/unix/cab/ $RPM_BUILD_ROOT%{_datadir}/games/%{name}
 
-install %{name}-%{version}/src/unix/doc/xmame.6 $RPM_BUILD_ROOT%{_mandir}/man6
+install src/unix/doc/xmame.6 $RPM_BUILD_ROOT%{_mandir}/man6
 install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
 #install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
 #install %{SOURCE3} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
@@ -272,7 +271,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files common
 %defattr(644,root,root,755)
-%doc %{name}-%{version}/doc/*
+%doc doc/*
 %{_mandir}/man6/*
 %{_datadir}/games/%{name}
 %{_pixmapsdir}/xmame.png
@@ -299,7 +298,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files qtmame
 %defattr(644,root,root,755)
-%doc %{qtmame}-%{qtmame_ver}/{AUTHORS,COPYING,README,README-us,TODO,qtmame/docs/en/*.html}
+%doc %{qtmame}-%{qtmame_ver}/{AUTHORS,README,README-us,TODO,qtmame/docs/en/*.html}
 %attr(755,root,root) %{_bindir}/qtmame
 %{_datadir}/qtmame
 %{_pixmapsdir}/*
