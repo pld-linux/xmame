@@ -35,7 +35,7 @@ Patch2:		%{qtmame}-version.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
-BuildRequires:	alsa-driver-devel >= 0.9
+#BuildRequires:	alsa-driver-devel >= 0.9
 BuildRequires:	libusb-devel
 %{!?_without_svga:BuildRequires:	svgalib-devel}
 %{!?_without_qt:BuildRequires:	qt-devel >= 3.0}
@@ -225,7 +225,8 @@ cd ..
 	SOUND_ALSA=1 \
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
-	SOUND_SDL=1
+	SOUND_SDL=1 \
+	MAME_NET=1
 	
 %if %{!?_without_svga:1}0
 %{__make} -f makefile.unix \
@@ -238,7 +239,8 @@ cd ..
 	SOUND_ALSA=1 \
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
-	SOUND_SDL=1
+	SOUND_SDL=1 \
+	MAME_NET=1
 %endif 
 
 %{__make} -f makefile.unix \
@@ -251,7 +253,8 @@ cd ..
 	SOUND_ALSA=1 \
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
-	SOUND_SDL=1
+	SOUND_SDL=1 \
+	MAME_NET=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
