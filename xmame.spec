@@ -1,3 +1,5 @@
+%define         qtmame		qtmame
+%define		qtmame_ver	2.0.2
 Summary:	Unix/X11 port of M.A.M.E. - arcade machine emulator
 Summary(es):	X-Mame Arcade Game Emulator
 Summary(ko):	X윈도우 시스템을 위한 업소용 게임기 에물레이터
@@ -5,16 +7,20 @@ Summary(pl):	Port emulatora M.A.M.E. dzia쿪j켧y w 턳odowisku Unix/X11
 Summary(pt_BR):	Emulador de Arcades X-Mame
 Name:		xmame
 Version:	0.67.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Emulators
 Source0:	%{name}-%{version}.tar.bz2
-Source1:	%{name}.png
+Source1:        %{qtmame}-%{qtmame_ver}.tar.gz
 Source2:	%{name}-SDL.desktop
 Source3:	%{name}-x11.desktop
 Source4:	%{name}-alsa_0.5.c
 Source5:	%{name}-alsa_0.9.c
+Source6:        %{name}.png
+Source7:        xmame-qtmame.desktop
+Source8:        xmame-qtmame_pl.ts
 Patch0:		%{name}-alsa.patch
+Patch1:         %{qtmame}-pl.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
@@ -25,7 +31,6 @@ BuildRequires:	svgalib-devel
 %endif
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 X-Mame the UNIX/X11 port of Mame project. It makes Mame arcade
@@ -163,14 +168,38 @@ The xmame screensaver.
 %description screensaver -l pl
 Wygaszacz ekranu X-Mame.
 
+%package qtmame
+Summary:	Qtmame - graphic interface for xmame
+Summary(pl):	Qtmame - graficzny interfejs dla xmame
+Group:		Applications/Emulator
+URL:		http://move.to/ingenio
+Requires:	%{name}-common = %{version}
+Provides:	qtmame
+Obsoletes:	qtmame
+
+%description qtmame
+Graphic interface for xmame
+
+%description qtmame -l pl
+Graficzny interfejs dla xmame
+
 %prep
-%setup -q
-%patch0 -p1
-install %{SOURCE4} src/unix/sysdep/dsp-drivers/alsa_0.5.c
-install %{SOURCE5} src/unix/sysdep/dsp-drivers/alsa_0.9.c
+%setup -q -c -a 1
+#%patch0 -p1
+%patch1 -p1
+install %{SOURCE4} %{name}-%{version}/src/unix/sysdep/dsp-drivers/alsa_0.5.c
+install %{SOURCE5} %{name}-%{version}/src/unix/sysdep/dsp-drivers/alsa_0.9.c
+install %{SOURCE8} %{qtmame}-%{qtmame_ver}/qtmame/qtmame_pl.ts
+lrelease %{qtmame}-%{qtmame_ver}/qtmame/qtmame.pro
 
 %build
 
+cd %{qtmame}-%{qtmame_ver}
+%configure2_13 \
+        --prefix=$RPM_BUILD_ROOT
+%{__make}
+
+cd ../%{name}-%{version}
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
@@ -211,29 +240,38 @@ install %{SOURCE5} src/unix/sysdep/dsp-drivers/alsa_0.9.c
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 install -d $RPM_BUILD_ROOT $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man6} \
 	$RPM_BUILD_ROOT%{_datadir}/games/%{name}/{cab,rc} \
-	$RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Games/Arcade}
-
-install xmame.SDL $RPM_BUILD_ROOT%{_bindir}
+	$RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Games/Arcade} \
+	$RPM_BUILD_ROOT%{_datadir}/qtmame
+install %{name}-%{version}/xmame.SDL $RPM_BUILD_ROOT%{_bindir}
 %ifarch %{ix86} alpha
-install xmame.svgalib $RPM_BUILD_ROOT%{_bindir}
+install %{name}-%{version}/xmame.svgalib $RPM_BUILD_ROOT%{_bindir}
 %endif
-install xmame.x11 $RPM_BUILD_ROOT%{_bindir}
-install contrib/tools/xmame-screensaver $RPM_BUILD_ROOT%{_bindir}
-cp -R src/unix/cab/ $RPM_BUILD_ROOT%{_datadir}/games/%{name}
+install %{name}-%{version}/xmame.x11 $RPM_BUILD_ROOT%{_bindir}
+install %{name}-%{version}/contrib/tools/xmame-screensaver $RPM_BUILD_ROOT%{_bindir}
+cp -R %{name}-%{version}/src/unix/cab/ $RPM_BUILD_ROOT%{_datadir}/games/%{name}
 
-install src/unix/doc/xmame.6 $RPM_BUILD_ROOT%{_mandir}/man6
-install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
-install %{SOURCE3} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{name}-%{version}/src/unix/doc/xmame.6 $RPM_BUILD_ROOT%{_mandir}/man6
+install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
+#install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+#install %{SOURCE3} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{SOURCE7} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+
+install %{qtmame}-%{qtmame_ver}/qtmame/qtmame $RPM_BUILD_ROOT%{_bindir}
+install %{qtmame}-%{qtmame_ver}/qtmame/qtmame.png $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{qtmame}-%{qtmame_ver}/qtmame/bkground.png $RPM_BUILD_ROOT%{_datadir}/qtmame
+install %{qtmame}-%{qtmame_ver}/qtmame/*.qm $RPM_BUILD_ROOT%{_datadir}/qtmame
+install %{qtmame}-%{qtmame_ver}/qtmame/listado020 $RPM_BUILD_ROOT%{_datadir}/qtmame
+install %{qtmame}-%{qtmame_ver}/qtmame/qtmame3.png $RPM_BUILD_ROOT%{_datadir}/qtmame
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files common
 %defattr(644,root,root,755)
-%doc doc/*
+%doc %{name}-%{version}/doc/*
 %{_mandir}/man6/*
 %{_datadir}/games/%{name}
 %{_pixmapsdir}/xmame.png
@@ -241,7 +279,7 @@ rm -rf $RPM_BUILD_ROOT
 %files SDL
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}.SDL
-%{_applnkdir}/Games/Arcade/%{name}-SDL.desktop
+#%{_applnkdir}/Games/Arcade/%{name}-SDL.desktop
 
 %ifarch %{ix86} alpha
 %files svgalib
@@ -252,8 +290,16 @@ rm -rf $RPM_BUILD_ROOT
 %files x11
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}.x11
-%{_applnkdir}/Games/Arcade/%{name}-x11.desktop
+#%{_applnkdir}/Games/Arcade/%{name}-x11.desktop
 
 %files screensaver
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xmame-screensaver
+
+%files qtmame
+%defattr(644,root,root,755)
+%doc %{qtmame}-%{qtmame_ver}/{AUTHORS,COPYING,README,README-us,TODO,qtmame/docs/en/*.html}
+%attr(755,root,root) %{_bindir}/qtmame
+%{_datadir}/qtmame
+%{_pixmapsdir}/*
+%{_applnkdir}/Games/Arcade/%{name}-qtmame.desktop
