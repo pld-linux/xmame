@@ -4,7 +4,7 @@ Summary(ko):	X윈도우 시스템을 위한 업소용 게임기 에물레이터
 Summary(pl):	Port emulatora M.A.M.E. dzia쿪j켧y w 턳odowisku Unix/X11
 Summary(pt_BR):	Emulador de Arcades X-Mame
 Name:		xmame
-Version:	0.67.1
+Version:	0.67.2
 Release:	1
 License:	GPL
 Group:		Applications/Emulators
