@@ -1,6 +1,5 @@
 # _without_svga		dont build svga version 
 # _without_qt		dont build qtmame
-# TODO - xmame-xmess-svga as bcond
 
 %ifnarch %{ix86} alpha
 %define		_without_svga	1
@@ -15,7 +14,7 @@ Summary(pl):	Port emulatora M.A.M.E. dzia³aj±cy w ¶rodowisku Unix/X11
 Summary(pt_BR):	Emulador de Arcades X-Mame
 Name:		xmame
 Version:	0.70.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Emulators
 #Source0Download:	http://x.mame.net/xmame-doc-7.html
@@ -228,6 +227,22 @@ Mess to to samo co mame - emulator maszyny wirtualnej, tyle ¿e
 nie emuluje on automatów arcade'owych a komputery i konsole.
 Ten pakiet zawiera binaria dla SDL.
 
+%package xmess-svgalib
+Summary:        xmess - a virtual machine emulator for svgalib
+Summary(pl):    xmess - emulator maszyny wirtualnej dla svgalib
+Group:          Applications/Emulator
+Requires:       %{name}-common = %{version}
+
+%description xmess-svgalib
+Mess is just like mame - a virtual machine emulator, only it
+doesn't emulate arcade machines but rather computers and consoles.
+This package contains binaries for svgalib.
+
+%description xmess-svgalib -l pl
+Mess to to samo co mame - emulator maszyny wirtualnej, tyle ¿e
+nie emuluje on automatów arcade'owych a komputery i konsole.
+Ten pakiet zawiera binaria dla svgalib.
+
 %prep
 %setup -q -a1
 #%patch0 -p1
@@ -278,6 +293,22 @@ cd ..
         SOUND_ARTS_SMOTEK=1 \
         SOUND_SDL=1 \
         XMAME_NET=1
+
+%if %{!?_without_svga:1}0
+%{__make} -f makefile.unix \
+	TARGET=mess \
+        PREFIX=%{_prefix} \
+        XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
+        CC="%{__cc}" CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
+        LD="%{__cc} %{rpmldflags}" \
+        DISPLAY_METHOD=svgalib \
+        SOUND_ESOUND=1 \
+        SOUND_ALSA=1 \
+        SOUND_ARTS_TEIRA=1 \
+        SOUND_ARTS_SMOTEK=1 \
+        SOUND_SDL=1 \
+        XMAME_NET=1
+%endif
 
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
@@ -331,6 +362,7 @@ install xmame.SDL $RPM_BUILD_ROOT%{_bindir}
 
 %if %{!?_without_svga:1}0
 install xmame.svgalib $RPM_BUILD_ROOT%{_bindir}
+install xmess.svgalib $RPM_BUILD_ROOT%{_bindir}
 %endif
 
 install xmame.x11 $RPM_BUILD_ROOT%{_bindir}
@@ -402,3 +434,9 @@ rm -rf $RPM_BUILD_ROOT
 %files xmess-SDL
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xmess.SDL
+
+%if %{!?_without_svga:1}0
+%files xmess-svgalib
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/xmess.svgalib
+%endif
