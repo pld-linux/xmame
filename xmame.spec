@@ -1,5 +1,6 @@
 # _without_svga		dont build svga version 
 # _without_qt		dont build qtmame
+# TODO - xmess
 
 %ifnarch %{ix86} alpha
 %define		_without_svga	1
@@ -29,6 +30,8 @@ Source5:	%{name}-alsa_0.9.c
 Source6:        %{name}.png
 Source7:        xmame-qtmame.desktop
 Source8:        xmame-qtmame_pl.ts
+# Source9-md5:  f822a1a13f63572d2e9d510638906331
+Source9:	http://x.mame.net/download/%{name}-doc.pdf
 Patch0:		%{name}-alsa.patch
 Patch1:         %{qtmame}-pl.patch
 Patch2:		%{qtmame}-version.patch
@@ -200,6 +203,7 @@ Graficzny interfejs dla XMame.
 %patch2 -p1
 install %{SOURCE4} src/unix/sysdep/dsp-drivers/alsa_0.5.c
 install %{SOURCE5} src/unix/sysdep/dsp-drivers/alsa_0.9.c
+install %{SOURCE9} doc/
 %if %{!?_without_qt:1}0
 install %{SOURCE8} %{qtmame}-%{qtmame_ver}/qtmame/qtmame_pl.ts
 lrelease %{qtmame}-%{qtmame_ver}/qtmame/qtmame.pro
