@@ -4,15 +4,17 @@ Summary(ko):	X윈도우 시스템을 위한 업소용 게임기 에물레이터
 Summary(pl):	Port emulatora M.A.M.E. dzia쿪j켧y w 턳odowisku Unix/X11
 Summary(pt_BR):	Emulador de Arcades X-Mame
 Name:		xmame
-Version:	0.65.1
-Release:	0.1
+Version:	0.66.2
+Release:	1
 License:	GPL
 Group:		Applications/Emulators
 Source0:	http://x.mame.net/download/%{name}-%{version}.tar.bz2
 Source1:	%{name}.png
 Source2:	%{name}-SDL.desktop
 Source3:	%{name}-x11.desktop
-Patch0:		%{name}-noattr.patch
+Source4:        %{name}-alsa_0.5.c
+Source5:        %{name}-alsa_0.9.c
+Patch0:         %{name}-alsa.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
@@ -159,6 +161,8 @@ Wygaszacz ekranu XMame.
 %prep
 %setup -q
 %patch0 -p1
+install %{SOURCE4} src/unix/sysdep/dsp-drivers/alsa_0.5.c
+install %{SOURCE5} src/unix/sysdep/dsp-drivers/alsa_0.9.c
 
 %build
 
