@@ -1,5 +1,5 @@
---- xmame-0.67.2/qtmame-2.0.2/qtmame/Makefile.in.orig	Sun Apr 13 21:10:47 2003
-+++ xmame-0.67.2/qtmame-2.0.2/qtmame/Makefile.in	Sun Apr 13 21:11:30 2003
+--- xmame-0.6.7/qtmame-2.0.4/qtmame/Makefile.in.orig	Fri Apr 18 09:52:02 2003
++++ xmame-0.6.7/qtmame-2.0.4/qtmame/Makefile.in	Fri Apr 18 09:53:05 2003
 @@ -233,13 +233,13 @@
  qtmame_SOURCES=configi.cpp  ventanai.cpp  main.cpp  config.cpp ventana.cpp
  SOURCES = configi.cpp ventanai.cpp main.cpp 
@@ -11,13 +11,28 @@
  
  SUBDIRS = docs 
  
--EXTRA_DIST = main.cpp ventana.ui ventanai.cpp ventanai.h configi.h config.ui configi.cpp imagenes.h qtmame3.png qtmame.png qtmame.pro qtmame_es.ts qtmame_us.ts qtmame_us.qm qtmame_es.qm Qtmame.desktop qtmame-us bkground.png listado020 
-+EXTRA_DIST = main.cpp ventana.ui ventanai.cpp ventanai.h configi.h config.ui configi.cpp imagenes.h qtmame3.png qtmame.png qtmame.pro qtmame_es.ts qtmame_us.ts qtmame_pl.ts qtmame_us.qm qtmame_es.qm qtmame_pl.qm Qtmame.desktop qtmame-us bkground.png listado020 
+-EXTRA_DIST = main.cpp ventana.ui ventanai.cpp ventanai.h configi.h config.ui configi.cpp imagenes.h qtmame3.png qtmame.png qtmame.pro qtmame_es.ts qtmame_us.ts qtmame_us.qm qtmame_es.qm Qtmame.desktop qtmame-us bkground.png listado020 catver.ini 
++EXTRA_DIST = main.cpp ventana.ui ventanai.cpp ventanai.h configi.h config.ui configi.cpp imagenes.h qtmame3.png qtmame.png qtmame.pro qtmame_es.ts qtmame_us.ts qtmame_pl.ts qtmame_us.qm qtmame_es.qm qtmame_pl.qm Qtmame.desktop qtmame-us bkground.png listado020 catver.ini 
  
  ####### kdevelop will overwrite this part!!! (end)############
  
---- xmame-0.67.2/qtmame-2.0.2/qtmame/main.cpp.orig	Sun Apr 13 21:12:04 2003
-+++ xmame-0.67.2/qtmame-2.0.2/qtmame/main.cpp	Sun Apr 13 21:12:15 2003
+--- xmame-0.6.7/qtmame-2.0.4/qtmame/qtmame.pro.orig	Fri Apr 18 09:52:27 2003
++++ xmame-0.6.7/qtmame-2.0.4/qtmame/qtmame.pro	Fri Apr 18 09:55:23 2003
+@@ -4,9 +4,9 @@
+   MOC_DIR = .moc
+   OBJECTS_DIR = .obj
+ }
+-TRANSLATIONS    = qtmame_us.ts \
+-				qtmame_es.ts
+-
++TRANSLATIONS    = qtmame-2.0.4/qtmame/qtmame_us.ts \
++				qtmame-2.0.4/qtmame/qtmame_es.ts \
++						qtmame-2.0.4/qtmame/qtmame_pl.ts
+ FORMS	= ventana.ui config.ui  
+ TEMPLATE	=app
+ CONFIG	+= qt warn_on release
+--- xmame-0.6.7/qtmame-2.0.4/qtmame/main.cpp.orig	Fri Apr 18 09:55:49 2003
++++ xmame-0.6.7/qtmame-2.0.4/qtmame/main.cpp	Fri Apr 18 09:56:08 2003
 @@ -14,7 +14,7 @@
  
          // translation file for application strings
@@ -27,47 +42,3 @@
          app.installTranslator( &myapp );
  
        ventanai m;
---- xmame-0.67.2/qtmame-2.0.2/qtmame/ventanai.cpp.orig	Sun Apr 13 23:42:44 2003
-+++ xmame-0.67.2/qtmame-2.0.2/qtmame/ventanai.cpp	Sun Apr 13 23:43:10 2003
-@@ -148,7 +148,7 @@
- 
- //imagen fondo
- QString iFondo;
--iFondo=conf.readEntry( "/qtmame/general/imagenFondo", "/usr/local/share/qtmame/bkground.png" );
-+iFondo=conf.readEntry( "/qtmame/general/imagenFondo", "/usr/share/qtmame/bkground.png" );
- QFile fF(iFondo);
- if (fF.exists()) {
-        QPixmap img(iFondo);
-@@ -456,7 +456,7 @@
-                                    previa->setPixmap(img);
-                               }
-                               else{
--                                   QPixmap img("/usr/local/share/qtmame/qtmame3.png");
-+                                   QPixmap img("/usr/share/qtmame/qtmame3.png");
-                                    previa->setPixmap(img);
- 
-                               }
-@@ -537,7 +537,7 @@
- QFile f(home + "/.qtmame/listado020");
- if (!f.exists() ){
- //ATENCION CAMBIAR ACA SI CAMBIA LA VERSION
--     f.setName("/usr/local/share/qtmame/listado020");
-+     f.setName("/usr/share/qtmame/listado020");
- }
- 
- if (f.exists()) {
---- xmame-0.67.2/qtmame-2.0.2/qtmame/qtmame.pro.orig	Mon Apr 14 12:20:20 2003
-+++ xmame-0.67.2/qtmame-2.0.2/qtmame/qtmame.pro	Mon Apr 14 12:20:48 2003
-@@ -4,9 +4,9 @@
-   MOC_DIR = .moc
-   OBJECTS_DIR = .obj
- }
--TRANSLATIONS    = qtmame_us.ts \
--				qtmame_es.ts
--
-+TRANSLATIONS    = qtmame-2.0.2/qtmame/qtmame_us.ts \
-+				qtmame-2.0.2/qtmame/qtmame_es.ts \
-+						qtmame-2.0.2/qtmame/qtmame_pl.ts
- FORMS	= ventana.ui config.ui  
- TEMPLATE	=app
- CONFIG	+= qt warn_on release
