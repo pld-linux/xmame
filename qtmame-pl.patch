@@ -1,5 +1,5 @@
---- qtmame-2.0.2/qtmame/Makefile.in.orig	Sun Apr 13 21:10:47 2003
-+++ qtmame-2.0.2/qtmame/Makefile.in	Sun Apr 13 21:11:30 2003
+--- xmame-0.67.2/qtmame-2.0.2/qtmame/Makefile.in.orig	Sun Apr 13 21:10:47 2003
++++ xmame-0.67.2/qtmame-2.0.2/qtmame/Makefile.in	Sun Apr 13 21:11:30 2003
 @@ -233,13 +233,13 @@
  qtmame_SOURCES=configi.cpp  ventanai.cpp  main.cpp  config.cpp ventana.cpp
  SOURCES = configi.cpp ventanai.cpp main.cpp 
@@ -16,8 +16,8 @@
  
  ####### kdevelop will overwrite this part!!! (end)############
  
---- qtmame-2.0.2/qtmame/main.cpp.orig	Sun Apr 13 21:12:04 2003
-+++ qtmame-2.0.2/qtmame/main.cpp	Sun Apr 13 21:12:15 2003
+--- xmame-0.67.2/qtmame-2.0.2/qtmame/main.cpp.orig	Sun Apr 13 21:12:04 2003
++++ xmame-0.67.2/qtmame-2.0.2/qtmame/main.cpp	Sun Apr 13 21:12:15 2003
 @@ -14,7 +14,7 @@
  
          // translation file for application strings
@@ -27,8 +27,8 @@
          app.installTranslator( &myapp );
  
        ventanai m;
---- qtmame-2.0.2/qtmame/ventanai.cpp.orig	Sun Apr 13 23:42:44 2003
-+++ qtmame-2.0.2/qtmame/ventanai.cpp	Sun Apr 13 23:43:10 2003
+--- xmame-0.67.2/qtmame-2.0.2/qtmame/ventanai.cpp.orig	Sun Apr 13 23:42:44 2003
++++ xmame-0.67.2/qtmame-2.0.2/qtmame/ventanai.cpp	Sun Apr 13 23:43:10 2003
 @@ -148,7 +148,7 @@
  
  //imagen fondo
@@ -56,8 +56,8 @@
  }
  
  if (f.exists()) {
---- qtmame-2.0.2/qtmame/qtmame.pro.orig	Mon Apr 14 12:20:20 2003
-+++ qtmame-2.0.2/qtmame/qtmame.pro	Mon Apr 14 12:20:48 2003
+--- xmame-0.67.2/qtmame-2.0.2/qtmame/qtmame.pro.orig	Mon Apr 14 12:20:20 2003
++++ xmame-0.67.2/qtmame-2.0.2/qtmame/qtmame.pro	Mon Apr 14 12:20:48 2003
 @@ -4,9 +4,9 @@
    MOC_DIR = .moc
    OBJECTS_DIR = .obj
@@ -65,9 +65,9 @@
 -TRANSLATIONS    = qtmame_us.ts \
 -				qtmame_es.ts
 -
-+TRANSLATIONS    = qtmame/qtmame_us.ts \
-+				qtmame/qtmame_es.ts \
-+						qtmame/qtmame_pl.ts
++TRANSLATIONS    = qtmame-2.0.2/qtmame/qtmame_us.ts \
++				qtmame-2.0.2/qtmame/qtmame_es.ts \
++						qtmame-2.0.2/qtmame/qtmame_pl.ts
  FORMS	= ventana.ui config.ui  
  TEMPLATE	=app
  CONFIG	+= qt warn_on release
