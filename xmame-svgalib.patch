@@ -28,3 +28,29 @@
     if (best_score == 0)
     {
        fprintf(stderr_file, "Svgalib: Couldn't find a suitable mode for a resolution of %d x %d\n",
+--- xmame-0.80.1/src/unix/video-drivers/svgainput.c.orig	2004-03-07 01:01:12.000000000 +0100
++++ xmame-0.80.1/src/unix/video-drivers/svgainput.c	2004-07-07 15:20:31.000000000 +0200
+@@ -241,11 +241,15 @@
+    acquire_function = acquire_func;
+    
+    /* newer svgalib's use different signals */
++   /* but svgalib 1.9.x uses SIGUSR[12] again */
++#if 0
+    if (vga_setmode(-1)<0x1410)
+    {
+       fprintf(stderr_file, "info: svgalib version older then 1.4.1 detected, using old style signals\n");
++#endif
+       release_signal = SIGUSR1;
+       acquire_signal = SIGUSR2;
++#if 0
+    }
+    else
+    {
+@@ -253,6 +257,7 @@
+       release_signal = SIGPROF;
+       acquire_signal = SIGUNUSED;
+    }
++#endif
+   
+    /* catch console switch signals to enable / disable the vga pass through */
+    memset(&release_sa, 0, sizeof(struct sigaction));
