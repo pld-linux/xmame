@@ -156,10 +156,10 @@ Wygaszacz ekranu xmame.
 %build
 
 %{__make} -f makefile.unix \
-PREFIX=%{_prefix} XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name}
+PREFIX=%{_prefix} XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
 CC="%{__cc}" CFLAGS="%{rpmcflags}" \
 LD="%{__cc} %{rpmldflags} -Wl,-s" \
-DISPLAY_METHOD=x11 \
+DISPLAY_METHOD=SDL \
 SOUND_ESOUND=1 \
 SOUND_ALSA=1 \
 SOUND_ARTS_TEIRA=1 \
@@ -167,7 +167,7 @@ SOUND_ARTS_SMOTEK=1 \
 SOUND_SDL=1 
 
 %{__make} -f makefile.unix \
-PREFIX=%{_prefix} XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name}
+PREFIX=%{_prefix} XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
 CC="%{__cc}" CFLAGS="%{rpmcflags}" \
 LD="%{__cc} %{rpmldflags} -Wl,-s" \
 DISPLAY_METHOD=svgalib \
@@ -178,10 +178,10 @@ SOUND_ARTS_SMOTEK=1 \
 SOUND_SDL=1
 
 %{__make} -f makefile.unix \
-PREFIX=%{_prefix} XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name}
+PREFIX=%{_prefix} XMAMEROOT=$RPM_BUILD_ROOT%{_datadir}/games/%{name} \
 CC="%{__cc}" CFLAGS="%{rpmcflags}" \
 LD="%{__cc} %{rpmldflags} -Wl,-s" \
-DISPLAY_METHOD=SDL \
+DISPLAY_METHOD=x11 \
 SOUND_ESOUND=1 \
 SOUND_ALSA=1 \
 SOUND_ARTS_TEIRA=1 \
