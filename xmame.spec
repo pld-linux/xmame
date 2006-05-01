@@ -35,7 +35,7 @@ Patch2:		%{qtmame}-version.patch
 Patch3:		%{name}-svgalib.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
-BuildRequires:	X11-devel
+BuildRequires:	XFree86-devel
 BuildRequires:	alsa-driver-devel >= 0.9
 BuildRequires:	artsc-devel
 BuildRequires:	automake
