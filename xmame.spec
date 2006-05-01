@@ -4,22 +4,22 @@
 %bcond_without	qt	# don't build qtmame
 #
 %define		qtmame		qtmame
-%define		qtmame_ver	2.0.4
+%define		qtmame_ver	2.0.6
 Summary:	Unix/X11 port of M.A.M.E. - arcade machine emulator
 Summary(es):	X-Mame Arcade Game Emulator
 Summary(ko):	X윈도우 시스템을 위한 업소용 게임기 에물레이터
 Summary(pl):	Port emulatora M.A.M.E. dzia쿪j켧y w 턳odowisku Unix/X11
 Summary(pt_BR):	Emulador de Arcades X-Mame
 Name:		xmame
-Version:	0.86
-Release:	3
+Version:	0.105
+Release:	1
 License:	GPL
 Group:		Applications/Emulators
 #Source0Download:	http://x.mame.net/xmame-doc-7.html
 Source0:	http://x.mame.net/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	b16782cd620ef970233eacd65462ad74
+# Source0-md5:	18979c881aa0034d5d6a172d4263af3e
 Source1:	http://lecha.homelinux.com/ingenio/archivos/%{qtmame}-%{qtmame_ver}.tar.gz
-# Source1-md5:	28fcd7859d0ad4f42091923cb2932ba2
+# Source1-md5:	69b568b8e68877a11b2ffa4845829bb1
 Source2:	%{name}-SDL.desktop
 Source3:	%{name}-x11.desktop
 Source4:	%{name}-alsa_0.5.c
@@ -28,14 +28,14 @@ Source6:	%{name}.png
 Source7:	%{name}-qtmame.desktop
 Source8:	%{name}-qtmame_pl.ts
 Source9:	http://x.mame.net/download/%{name}-doc.pdf
-# Source9-md5:	36e83bbe08fe95de6562b40654a37954
+# Source9-md5:	f4a7b59d020ce35decd03b67639639a2
 Patch0:		%{name}-alsa.patch
 Patch1:		%{qtmame}-pl.patch
 Patch2:		%{qtmame}-version.patch
 Patch3:		%{name}-svgalib.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 BuildRequires:	alsa-driver-devel >= 0.9
 BuildRequires:	artsc-devel
 BuildRequires:	automake
@@ -249,9 +249,9 @@ Ten pakiet zawiera binaria dla svgalib.
 %prep
 %setup -q -a1
 #%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
+#%patch1 -p1
+#%patch2 -p1
+#%patch3 -p1
 install %{SOURCE4} src/unix/sysdep/dsp-drivers/alsa_0.5.c
 install %{SOURCE5} src/unix/sysdep/dsp-drivers/alsa_0.9.c
 install %{SOURCE9} doc/
@@ -281,7 +281,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
+	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=SDL \
 	SOUND_ESOUND=1 \
@@ -296,7 +296,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
+	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	X11LIB="-L/usr/X11R6/%{_lib}" \
 	DISPLAY_METHOD=x11 \
@@ -313,7 +313,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
+	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=svgalib \
 	SOUND_ESOUND=1 \
@@ -328,7 +328,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
+	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=SDL \
 	SOUND_ESOUND=1 \
@@ -343,7 +343,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
+	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=svgalib \
 	SOUND_ESOUND=1 \
@@ -358,7 +358,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
+	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	X11LIB="-L/usr/X11R6/%{_lib}" \
 	DISPLAY_METHOD=x11 \
