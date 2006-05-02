@@ -26,7 +26,7 @@ Source4:	%{name}.png
 Source5:	%{name}-qtmame.desktop
 Source6:	%{name}-qtmame_pl.ts
 Source7:	http://x.mame.net/download/%{name}-doc.pdf
-# Source9-md5:	f4a7b59d020ce35decd03b67639639a2
+# Source7-md5:	f4a7b59d020ce35decd03b67639639a2
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
 #BuildRequires:	XFree86-devel
