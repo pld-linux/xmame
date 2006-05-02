@@ -29,7 +29,7 @@ Source7:	http://x.mame.net/download/%{name}-doc.pdf
 # Source7-md5:	f4a7b59d020ce35decd03b67639639a2
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
-#BuildRequires:	XFree86-devel
+BuildRequires:	XFree86-devel
 BuildRequires:	alsa-driver-devel >= 0.9
 BuildRequires:	artsc-devel
 BuildRequires:	automake
