@@ -22,20 +22,14 @@ Source1:	http://lecha.homelinux.com/ingenio/archivos/%{qtmame}-%{qtmame_ver}.tar
 # Source1-md5:	69b568b8e68877a11b2ffa4845829bb1
 Source2:	%{name}-SDL.desktop
 Source3:	%{name}-x11.desktop
-Source4:	%{name}-alsa_0.5.c
-Source5:	%{name}-alsa_0.9.c
-Source6:	%{name}.png
-Source7:	%{name}-qtmame.desktop
-Source8:	%{name}-qtmame_pl.ts
-Source9:	http://x.mame.net/download/%{name}-doc.pdf
+Source4:	%{name}.png
+Source5:	%{name}-qtmame.desktop
+Source6:	%{name}-qtmame_pl.ts
+Source7:	http://x.mame.net/download/%{name}-doc.pdf
 # Source9-md5:	f4a7b59d020ce35decd03b67639639a2
-Patch0:		%{name}-alsa.patch
-Patch1:		%{qtmame}-pl.patch
-Patch2:		%{qtmame}-version.patch
-Patch3:		%{name}-svgalib.patch
 URL:		http://x.mame.net/
 BuildRequires:	SDL-devel
-BuildRequires:	XFree86-devel
+#BuildRequires:	XFree86-devel
 BuildRequires:	alsa-driver-devel >= 0.9
 BuildRequires:	artsc-devel
 BuildRequires:	automake
@@ -248,16 +242,10 @@ Ten pakiet zawiera binaria dla svgalib.
 
 %prep
 %setup -q -a1
-#%patch0 -p1
-#%patch1 -p1
-#%patch2 -p1
-#%patch3 -p1
-install %{SOURCE4} src/unix/sysdep/dsp-drivers/alsa_0.5.c
-install %{SOURCE5} src/unix/sysdep/dsp-drivers/alsa_0.9.c
-install %{SOURCE9} doc/
+install %{SOURCE7} doc/
 %if %{with qt}
 install %{_datadir}/automake/config.* %{qtmame}-%{qtmame_ver}/admin
-install %{SOURCE8} %{qtmame}-%{qtmame_ver}/qtmame/qtmame_pl.ts
+install %{SOURCE6} %{qtmame}-%{qtmame_ver}/qtmame/qtmame_pl.ts
 lrelease %{qtmame}-%{qtmame_ver}/qtmame/qtmame.pro
 %endif
 
@@ -281,7 +269,6 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=SDL \
 	SOUND_ESOUND=1 \
@@ -289,14 +276,13 @@ cd ..
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
-	XMAME_NET=1
+	#XMAME_NET=1
 
 %{__make} -f makefile.unix \
 	TARGET=mess \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	X11LIB="-L/usr/X11R6/%{_lib}" \
 	DISPLAY_METHOD=x11 \
@@ -305,7 +291,7 @@ cd ..
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
-	XMAME_NET=1
+	#XMAME_NET=1
 
 %if %{with svga}
 %{__make} -f makefile.unix \
@@ -313,7 +299,6 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=svgalib \
 	SOUND_ESOUND=1 \
@@ -321,14 +306,13 @@ cd ..
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
-	XMAME_NET=1
+	#XMAME_NET=1
 %endif
 
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=SDL \
 	SOUND_ESOUND=1 \
@@ -336,14 +320,13 @@ cd ..
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
-	XMAME_NET=1
+	#XMAME_NET=1
 
 %if %{with svga}
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	DISPLAY_METHOD=svgalib \
 	SOUND_ESOUND=1 \
@@ -351,14 +334,13 @@ cd ..
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
-	XMAME_NET=1
+	#XMAME_NET=1
 %endif
 
 %{__make} -f makefile.unix \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc}" \
-	#CFLAGS="%{rpmcflags} -I/usr/X11R6/include" \
 	LD="%{__cc} %{rpmldflags}" \
 	X11LIB="-L/usr/X11R6/%{_lib}" \
 	DISPLAY_METHOD=x11 \
@@ -367,7 +349,7 @@ cd ..
 	SOUND_ARTS_TEIRA=1 \
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
-	XMAME_NET=1
+	#XMAME_NET=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -389,12 +371,12 @@ install contrib/tools/xmame-screensaver $RPM_BUILD_ROOT%{_bindir}
 cp -R src/unix/cab/ $RPM_BUILD_ROOT%{_datadir}/games/%{name}
 
 install src/unix/doc/xmame.6 $RPM_BUILD_ROOT%{_mandir}/man6
-install %{SOURCE6} $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE4} $RPM_BUILD_ROOT%{_pixmapsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_desktopdir}
 
 %if %{with qt}
-install %{SOURCE7} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE5} $RPM_BUILD_ROOT%{_desktopdir}
 
 install %{qtmame}-%{qtmame_ver}/qtmame/qtmame $RPM_BUILD_ROOT%{_bindir}
 install %{qtmame}-%{qtmame_ver}/qtmame/qtmame.png $RPM_BUILD_ROOT%{_pixmapsdir}
