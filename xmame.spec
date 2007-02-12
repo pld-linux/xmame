@@ -6,10 +6,10 @@
 %define		qtmame		qtmame
 %define		qtmame_ver	2.0.6
 Summary:	Unix/X11 port of M.A.M.E. - arcade machine emulator
-Summary(es.UTF-8):   X-Mame Arcade Game Emulator
-Summary(ko.UTF-8):   X윈도우 시스템을 위한 업소용 게임기 에물레이터
-Summary(pl.UTF-8):   Port emulatora M.A.M.E. działający w środowisku Unix/X11
-Summary(pt_BR.UTF-8):   Emulador de Arcades X-Mame
+Summary(es.UTF-8):	X-Mame Arcade Game Emulator
+Summary(ko.UTF-8):	X윈도우 시스템을 위한 업소용 게임기 에물레이터
+Summary(pl.UTF-8):	Port emulatora M.A.M.E. działający w środowisku Unix/X11
+Summary(pt_BR.UTF-8):	Emulador de Arcades X-Mame
 Name:		xmame
 Version:	0.105
 Release:	1
@@ -76,7 +76,7 @@ ROMS originais.
 
 %package common
 Summary:	XMame - common files
-Summary(pl.UTF-8):   XMame - wspólne pliki
+Summary(pl.UTF-8):	XMame - wspólne pliki
 Group:		Applications/Emulators
 
 %description common
@@ -110,9 +110,9 @@ uruchamiania każdej wersji emulatora.
 
 %package SDL
 Summary:	XMame with SDL graphic output
-Summary(es.UTF-8):   XMame Arcade Game Emulator - SDL
-Summary(pl.UTF-8):   XMame z wyjściem graficznym SDL
-Summary(pt_BR.UTF-8):   Emulador de Arcades XMame - SDL
+Summary(es.UTF-8):	XMame Arcade Game Emulator - SDL
+Summary(pl.UTF-8):	XMame z wyjściem graficznym SDL
+Summary(pt_BR.UTF-8):	Emulador de Arcades XMame - SDL
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -129,9 +129,9 @@ X11R6 (e sobre Linux usando SVGAlib também).
 
 %package svgalib
 Summary:	XMame - svgalib version
-Summary(es.UTF-8):   XMame Arcade Game Emulator - svgalib
-Summary(pl.UTF-8):   XMame - wersja z wyjściem svgalib
-Summary(pt_BR.UTF-8):   Emulador de Arcades XMame - svgalib
+Summary(es.UTF-8):	XMame Arcade Game Emulator - svgalib
+Summary(pl.UTF-8):	XMame - wersja z wyjściem svgalib
+Summary(pt_BR.UTF-8):	Emulador de Arcades XMame - svgalib
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -148,9 +148,9 @@ sobre Linux usando SVGAlib também).
 
 %package x11
 Summary:	XMame - x11 version
-Summary(es.UTF-8):   XMame Arcade Game Emulator - X11
-Summary(pl.UTF-8):   XMame - wersja z wyjściem x11
-Summary(pt_BR.UTF-8):   Emulador de Arcades XMame - X11
+Summary(es.UTF-8):	XMame Arcade Game Emulator - X11
+Summary(pl.UTF-8):	XMame - wersja z wyjściem x11
+Summary(pt_BR.UTF-8):	Emulador de Arcades XMame - X11
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -167,7 +167,7 @@ X11R6 (e sobre Linux usando SVGAlib também).
 
 %package screensaver
 Summary:	XMame - screensaver
-Summary(pl.UTF-8):   XMame - wygaszacz ekranu
+Summary(pl.UTF-8):	XMame - wygaszacz ekranu
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -179,7 +179,7 @@ Wygaszacz ekranu XMame.
 
 %package qtmame
 Summary:	Qtmame - graphic interface for XMame
-Summary(pl.UTF-8):   Qtmame - graficzny interfejs dla XMame
+Summary(pl.UTF-8):	Qtmame - graficzny interfejs dla XMame
 Group:		Applications/Emulators
 URL:		http://move.to/ingenio
 Requires:	%{name}-common = %{version}-%{release}
@@ -194,7 +194,7 @@ Graficzny interfejs dla XMame.
 
 %package xmess-x11
 Summary:	xmess - a virtual machine emulator for x11
-Summary(pl.UTF-8):   xmess - emulator maszyny wirtualnej dla x11
+Summary(pl.UTF-8):	xmess - emulator maszyny wirtualnej dla x11
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -210,7 +210,7 @@ Ten pakiet zawiera binaria dla x11.
 
 %package xmess-SDL
 Summary:	xmess - a virtual machine emulator for SDL
-Summary(pl.UTF-8):   xmess - emulator maszyny wirtualnej dla SDL
+Summary(pl.UTF-8):	xmess - emulator maszyny wirtualnej dla SDL
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -226,7 +226,7 @@ Ten pakiet zawiera binaria dla SDL.
 
 %package xmess-svgalib
 Summary:	xmess - a virtual machine emulator for svgalib
-Summary(pl.UTF-8):   xmess - emulator maszyny wirtualnej dla svgalib
+Summary(pl.UTF-8):	xmess - emulator maszyny wirtualnej dla svgalib
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
