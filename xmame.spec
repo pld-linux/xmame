@@ -6,10 +6,10 @@
 %define		qtmame		qtmame
 %define		qtmame_ver	2.0.6
 Summary:	Unix/X11 port of M.A.M.E. - arcade machine emulator
-Summary(es):	X-Mame Arcade Game Emulator
-Summary(ko):	X¿©µµøÏ Ω√Ω∫≈€¿ª ¿ß«— æ˜º“øÎ ∞‘¿”±‚ ø°π∞∑π¿Ã≈Õ
-Summary(pl):	Port emulatora M.A.M.E. dzia≥aj±cy w ∂rodowisku Unix/X11
-Summary(pt_BR):	Emulador de Arcades X-Mame
+Summary(es.UTF-8):   X-Mame Arcade Game Emulator
+Summary(ko.UTF-8):   XÏúàÎèÑÏö∞ ÏãúÏä§ÌÖúÏùÑ ÏúÑÌïú ÏóÖÏÜåÏö© Í≤åÏûÑÍ∏∞ ÏóêÎ¨ºÎ†àÏù¥ÌÑ∞
+Summary(pl.UTF-8):   Port emulatora M.A.M.E. dzia≈ÇajƒÖcy w ≈õrodowisku Unix/X11
+Summary(pt_BR.UTF-8):   Emulador de Arcades X-Mame
 Name:		xmame
 Version:	0.105
 Release:	1
@@ -53,30 +53,30 @@ hardware, mem maps, video, sounds and so, making possible that if you
 have original ROM images of a supported arcade game, you can play the
 game.
 
-%description -l pl
-XMame to uniksowy/X-owy port projektu Mame. Pozwala uruchamiaÊ
-emulator Mame na maszynach uniksowych z X11R6 Window System (a takøe
+%description -l pl.UTF-8
+XMame to uniksowy/X-owy port projektu Mame. Pozwala uruchamiaƒá
+emulator Mame na maszynach uniksowych z X11R6 Window System (a tak≈ºe
 linuksowych z SVGAlibem).
 
 Mame to emulator maszyny wirtualnej: zawiera emulatory Z80, 6502,
-68000 i ostatnie I86, po≥±czone z rÛønymi emulatorami sprzÍtu do gier.
-Kaødy emulator zawiera pe≥ny opis sprzÍtu, mapy pamiÍci, obrazu,
-dºwiÍku itp., co pozwala graÊ w gry pod warunkiem posiadania
-oryginalnych obrazÛw ROM.
+68000 i ostatnie I86, po≈ÇƒÖczone z r√≥≈ºnymi emulatorami sprzƒôtu do gier.
+Ka≈ºdy emulator zawiera pe≈Çny opis sprzƒôtu, mapy pamiƒôci, obrazu,
+d≈∫wiƒôku itp., co pozwala graƒá w gry pod warunkiem posiadania
+oryginalnych obraz√≥w ROM.
 
-%description -l pt_BR
-X-Mame È o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
-arcade emulator disponÌvel em m·quinas *ix usando o sistema X-Window
-X11R6 (e sobre Linux usando SVGAlib tambÈm). Mame È uma emulador de
-m·quinas virtuais: ele inclui um Z80, 6502, 68000 e recentemente
-microprocessadores I86, agregando uma grande quantidade de m·quinas de
-arcade. Cada emulador contÈm uma descriÁ„o sobre o hardware, mapas de
-memÛria, vÌdeo, som, etc, tornando possÌvel que vocÍ possa jogar suas
+%description -l pt_BR.UTF-8
+X-Mame √© o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
+arcade emulator dispon√≠vel em m√°quinas *ix usando o sistema X-Window
+X11R6 (e sobre Linux usando SVGAlib tamb√©m). Mame √© uma emulador de
+m√°quinas virtuais: ele inclui um Z80, 6502, 68000 e recentemente
+microprocessadores I86, agregando uma grande quantidade de m√°quinas de
+arcade. Cada emulador cont√©m uma descri√ß√£o sobre o hardware, mapas de
+mem√≥ria, v√≠deo, som, etc, tornando poss√≠vel que voc√™ possa jogar suas
 ROMS originais.
 
 %package common
 Summary:	XMame - common files
-Summary(pl):	XMame - wspÛlne pliki
+Summary(pl.UTF-8):   XMame - wsp√≥lne pliki
 Group:		Applications/Emulators
 
 %description common
@@ -94,92 +94,92 @@ game.
 This package contains base, common XMame files, required to run all
 versions of XMame.
 
-%description common -l pl
-XMame to uniksowy/X-owy port projektu Mame. Pozwala uruchamiaÊ
-emulator Mame na maszynach uniksowych z X11R6 Window System (a takøe
+%description common -l pl.UTF-8
+XMame to uniksowy/X-owy port projektu Mame. Pozwala uruchamiaƒá
+emulator Mame na maszynach uniksowych z X11R6 Window System (a tak≈ºe
 linuksowych z SVGAlibem).
 
 Mame to emulator maszyny wirtualnej: zawiera emulatory Z80, 6502,
-68000 i ostatnie I86, po≥±czone z rÛønymi emulatorami sprzÍtu do gier.
-Kaødy emulator zawiera pe≥ny opis sprzÍtu, mapy pamiÍci, obrazu,
-dºwiÍku itp., co pozwala graÊ w gry pod warunkiem posiadania
-oryginalnych obrazÛw ROM.
+68000 i ostatnie I86, po≈ÇƒÖczone z r√≥≈ºnymi emulatorami sprzƒôtu do gier.
+Ka≈ºdy emulator zawiera pe≈Çny opis sprzƒôtu, mapy pamiƒôci, obrazu,
+d≈∫wiƒôku itp., co pozwala graƒá w gry pod warunkiem posiadania
+oryginalnych obraz√≥w ROM.
 
-Ten pakiet zawiera podstawowe, wspÛlne pliki XMame, potrzebne do
-uruchamiania kaødej wersji emulatora.
+Ten pakiet zawiera podstawowe, wsp√≥lne pliki XMame, potrzebne do
+uruchamiania ka≈ºdej wersji emulatora.
 
 %package SDL
 Summary:	XMame with SDL graphic output
-Summary(es):	XMame Arcade Game Emulator - SDL
-Summary(pl):	XMame z wyj∂ciem graficznym SDL
-Summary(pt_BR):	Emulador de Arcades XMame - SDL
+Summary(es.UTF-8):   XMame Arcade Game Emulator - SDL
+Summary(pl.UTF-8):   XMame z wyj≈õciem graficznym SDL
+Summary(pt_BR.UTF-8):   Emulador de Arcades XMame - SDL
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
 %description SDL
 This package has XMame binaries compiled for SDL graphics output.
 
-%description SDL -l pl
-Ten pakiet zawiera binaria XMame z wyj∂ciem grafiki przez SDL.
+%description SDL -l pl.UTF-8
+Ten pakiet zawiera binaria XMame z wyj≈õciem grafiki przez SDL.
 
-%description SDL -l pt_BR
-XMame È o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
-arcade emulator disponÌvel em m·quinas *ix usando o sistema X-Window
-X11R6 (e sobre Linux usando SVGAlib tambÈm).
+%description SDL -l pt_BR.UTF-8
+XMame √© o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
+arcade emulator dispon√≠vel em m√°quinas *ix usando o sistema X-Window
+X11R6 (e sobre Linux usando SVGAlib tamb√©m).
 
 %package svgalib
 Summary:	XMame - svgalib version
-Summary(es):	XMame Arcade Game Emulator - svgalib
-Summary(pl):	XMame - wersja z wyj∂ciem svgalib
-Summary(pt_BR):	Emulador de Arcades XMame - svgalib
+Summary(es.UTF-8):   XMame Arcade Game Emulator - svgalib
+Summary(pl.UTF-8):   XMame - wersja z wyj≈õciem svgalib
+Summary(pt_BR.UTF-8):   Emulador de Arcades XMame - svgalib
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
 %description svgalib
 This package has XMame binaries compiled for svgalib graphic output.
 
-%description svgalib -l pl
-Ten pakiet zawiera binaria XMame z wyj∂ciem grafiki przez SVGAlib.
+%description svgalib -l pl.UTF-8
+Ten pakiet zawiera binaria XMame z wyj≈õciem grafiki przez SVGAlib.
 
-%description svgalib -l pt_BR
-XMame È o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
-arcade emulator disponÌvel em m·quinas *ix usando o sistema X11 (e
-sobre Linux usando SVGAlib tambÈm).
+%description svgalib -l pt_BR.UTF-8
+XMame √© o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
+arcade emulator dispon√≠vel em m√°quinas *ix usando o sistema X11 (e
+sobre Linux usando SVGAlib tamb√©m).
 
 %package x11
 Summary:	XMame - x11 version
-Summary(es):	XMame Arcade Game Emulator - X11
-Summary(pl):	XMame - wersja z wyj∂ciem x11
-Summary(pt_BR):	Emulador de Arcades XMame - X11
+Summary(es.UTF-8):   XMame Arcade Game Emulator - X11
+Summary(pl.UTF-8):   XMame - wersja z wyj≈õciem x11
+Summary(pt_BR.UTF-8):   Emulador de Arcades XMame - X11
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
 %description x11
 This package has XMame binaries compiled for x11 graphic output.
 
-%description x11 -l pl
-Ten pakiet zawiera binaria XMame z wyj∂ciem grafiki pod X11.
+%description x11 -l pl.UTF-8
+Ten pakiet zawiera binaria XMame z wyj≈õciem grafiki pod X11.
 
-%description x11 -l pt_BR
-XMame È o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
-arcade emulator disponÌvel em m·quinas *ix usando o sistema X-Window
-X11R6 (e sobre Linux usando SVGAlib tambÈm).
+%description x11 -l pt_BR.UTF-8
+XMame √© o porte para UNIX/X11 do projeto Mame. Ele torna o Mame
+arcade emulator dispon√≠vel em m√°quinas *ix usando o sistema X-Window
+X11R6 (e sobre Linux usando SVGAlib tamb√©m).
 
 %package screensaver
 Summary:	XMame - screensaver
-Summary(pl):	XMame - wygaszacz ekranu
+Summary(pl.UTF-8):   XMame - wygaszacz ekranu
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
 %description screensaver
 The XMame screensaver.
 
-%description screensaver -l pl
+%description screensaver -l pl.UTF-8
 Wygaszacz ekranu XMame.
 
 %package qtmame
 Summary:	Qtmame - graphic interface for XMame
-Summary(pl):	Qtmame - graficzny interfejs dla XMame
+Summary(pl.UTF-8):   Qtmame - graficzny interfejs dla XMame
 Group:		Applications/Emulators
 URL:		http://move.to/ingenio
 Requires:	%{name}-common = %{version}-%{release}
@@ -189,12 +189,12 @@ Obsoletes:	qtmame
 %description qtmame
 Graphic interface for XMame.
 
-%description qtmame -l pl
+%description qtmame -l pl.UTF-8
 Graficzny interfejs dla XMame.
 
 %package xmess-x11
 Summary:	xmess - a virtual machine emulator for x11
-Summary(pl):	xmess - emulator maszyny wirtualnej dla x11
+Summary(pl.UTF-8):   xmess - emulator maszyny wirtualnej dla x11
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -203,14 +203,14 @@ Mess is just like mame - a virtual machine emulator, only it
 doesn't emulate arcade machines but rather computers and consoles.
 This package contains binaries for x11.
 
-%description xmess-x11 -l pl
-Mess to to samo co mame - emulator maszyny wirtualnej, tyle øe
-nie emuluje on automatÛw arcade'owych a komputery i konsole.
+%description xmess-x11 -l pl.UTF-8
+Mess to to samo co mame - emulator maszyny wirtualnej, tyle ≈ºe
+nie emuluje on automat√≥w arcade'owych a komputery i konsole.
 Ten pakiet zawiera binaria dla x11.
 
 %package xmess-SDL
 Summary:	xmess - a virtual machine emulator for SDL
-Summary(pl):	xmess - emulator maszyny wirtualnej dla SDL
+Summary(pl.UTF-8):   xmess - emulator maszyny wirtualnej dla SDL
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -219,14 +219,14 @@ Mess is just like mame - a virtual machine emulator, only it
 doesn't emulate arcade machines but rather computers and consoles.
 This package contains binaries for SDL.
 
-%description xmess-SDL -l pl
-Mess to to samo co mame - emulator maszyny wirtualnej, tyle øe
-nie emuluje on automatÛw arcade'owych a komputery i konsole.
+%description xmess-SDL -l pl.UTF-8
+Mess to to samo co mame - emulator maszyny wirtualnej, tyle ≈ºe
+nie emuluje on automat√≥w arcade'owych a komputery i konsole.
 Ten pakiet zawiera binaria dla SDL.
 
 %package xmess-svgalib
 Summary:	xmess - a virtual machine emulator for svgalib
-Summary(pl):	xmess - emulator maszyny wirtualnej dla svgalib
+Summary(pl.UTF-8):   xmess - emulator maszyny wirtualnej dla svgalib
 Group:		Applications/Emulators
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -235,9 +235,9 @@ Mess is just like mame - a virtual machine emulator, only it
 doesn't emulate arcade machines but rather computers and consoles.
 This package contains binaries for svgalib.
 
-%description xmess-svgalib -l pl
-Mess to to samo co mame - emulator maszyny wirtualnej, tyle øe
-nie emuluje on automatÛw arcade'owych a komputery i konsole.
+%description xmess-svgalib -l pl.UTF-8
+Mess to to samo co mame - emulator maszyny wirtualnej, tyle ≈ºe
+nie emuluje on automat√≥w arcade'owych a komputery i konsole.
 Ten pakiet zawiera binaria dla svgalib.
 
 %prep
