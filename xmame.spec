@@ -11,13 +11,13 @@ Summary(ko.UTF-8):	X윈도우 시스템을 위한 업소용 게임기 에물레�
 Summary(pl.UTF-8):	Port emulatora M.A.M.E. działający w środowisku Unix/X11
 Summary(pt_BR.UTF-8):	Emulador de Arcades X-Mame
 Name:		xmame
-Version:	0.105
-Release:	1
+Version:	0.106
+Release:	0.1
 License:	GPL
 Group:		Applications/Emulators
 #Source0Download:	http://x.mame.net/xmame-doc-7.html
 Source0:	http://x.mame.net/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	18979c881aa0034d5d6a172d4263af3e
+# Source0-md5:	b2b18d32a03ebd4d9c9476fbb93695ca
 Source1:	http://lecha.homelinux.com/ingenio/archivos/%{qtmame}-%{qtmame_ver}.tar.gz
 # Source1-md5:	69b568b8e68877a11b2ffa4845829bb1
 Source2:	%{name}-SDL.desktop
