@@ -446,13 +446,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/%{name}-qtmame.desktop
 %endif
 
+%if %{with x11}
 %files xmess-x11
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xmess.x11
+%endif
 
+%if %{with sdl}
 %files xmess-SDL
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xmess.SDL
+%endif
 
 %if %{with svga}
 %files xmess-svgalib
