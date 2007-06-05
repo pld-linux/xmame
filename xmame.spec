@@ -1,7 +1,9 @@
 #
 # Conditional build:
-%bcond_without	svga	# don't build svga version
-%bcond_without	qt	# don't build qtmame
+%bcond_without	svga	# don't build with svga display support
+%bcond_without	qt		# don't build qtmame
+%bcond_without	x11		# don't build with x11 display support
+%bcond_without	sdl		# don't build with sdl display support
 #
 %define		qtmame		qtmame
 %define		qtmame_ver	2.0.6
@@ -12,7 +14,7 @@ Summary(pl.UTF-8):	Port emulatora M.A.M.E. działający w środowisku Unix/X11
 Summary(pt_BR.UTF-8):	Emulador de Arcades X-Mame
 Name:		xmame
 Version:	0.106
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Applications/Emulators
 #Source0Download:	http://x.mame.net/xmame-doc-7.html
@@ -28,8 +30,8 @@ Source6:	%{name}-qtmame_pl.ts
 Source7:	http://x.mame.net/download/%{name}-doc.pdf
 # Source7-md5:	f4a7b59d020ce35decd03b67639639a2
 URL:		http://x.mame.net/
-BuildRequires:	SDL-devel
-BuildRequires:	xorg-lib-libX11-devel
+%{?with_sdl:BuildRequires:	SDL-devel}
+%{?with_x11:BuildRequires:	xorg-lib-libX11-devel}
 BuildRequires:	alsa-driver-devel >= 0.9
 BuildRequires:	artsc-devel
 BuildRequires:	automake
@@ -264,12 +266,12 @@ cd %{qtmame}-%{qtmame_ver}
 cd ..
 %endif
 
+%if %{with sdl}
 %{__make} -f makefile.unix \
-	TARGET=mess \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
-	CC="%{__cc}" \
-	LD="%{__cc} %{rpmldflags}" \
+	CC="%{__cc} %{rpmcflags}" \
+	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
 	DISPLAY_METHOD=SDL \
 	SOUND_ESOUND=1 \
 	SOUND_ALSA=1 \
@@ -277,13 +279,14 @@ cd ..
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
 	#XMAME_NET=1
+%endif
 
+%if %{with x11}
 %{__make} -f makefile.unix \
-	TARGET=mess \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
-	CC="%{__cc}" \
-	LD="%{__cc} %{rpmldflags}" \
+	CC="%{__cc} %{rpmcflags}" \
+	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
 	X11LIB="-L/usr/X11R6/%{_lib}" \
 	DISPLAY_METHOD=x11 \
 	SOUND_ESOUND=1 \
@@ -292,14 +295,14 @@ cd ..
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
 	#XMAME_NET=1
+%endif
 
 %if %{with svga}
 %{__make} -f makefile.unix \
-	TARGET=mess \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
-	CC="%{__cc}" \
-	LD="%{__cc} %{rpmldflags}" \
+	CC="%{__cc} %{rpmcflags}" \
+	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
 	DISPLAY_METHOD=svgalib \
 	SOUND_ESOUND=1 \
 	SOUND_ALSA=1 \
@@ -309,26 +312,14 @@ cd ..
 	#XMAME_NET=1
 %endif
 
+%if %{with sdl}
 %{__make} -f makefile.unix \
+	TARGET=mess \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
-	CC="%{__cc}" \
-	LD="%{__cc} %{rpmldflags}" \
+	CC="%{__cc} %{rpmcflags}" \
+	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
 	DISPLAY_METHOD=SDL \
-	SOUND_ESOUND=1 \
-	SOUND_ALSA=1 \
-	SOUND_ARTS_TEIRA=1 \
-	SOUND_ARTS_SMOTEK=1 \
-	SOUND_SDL=1 \
-	#XMAME_NET=1
-
-%if %{with svga}
-%{__make} -f makefile.unix \
-	PREFIX=%{_prefix} \
-	XMAMEROOT=%{_datadir}/games/%{name} \
-	CC="%{__cc}" \
-	LD="%{__cc} %{rpmldflags}" \
-	DISPLAY_METHOD=svgalib \
 	SOUND_ESOUND=1 \
 	SOUND_ALSA=1 \
 	SOUND_ARTS_TEIRA=1 \
@@ -337,11 +328,13 @@ cd ..
 	#XMAME_NET=1
 %endif
 
+%if %{with x11}
 %{__make} -f makefile.unix \
+	TARGET=mess \
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
-	CC="%{__cc}" \
-	LD="%{__cc} %{rpmldflags}" \
+	CC="%{__cc} %{rpmcflags}" \
+	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
 	X11LIB="-L/usr/X11R6/%{_lib}" \
 	DISPLAY_METHOD=x11 \
 	SOUND_ESOUND=1 \
@@ -350,6 +343,23 @@ cd ..
 	SOUND_ARTS_SMOTEK=1 \
 	SOUND_SDL=1 \
 	#XMAME_NET=1
+%endif
+
+%if %{with svga}
+%{__make} -f makefile.unix \
+	TARGET=mess \
+	PREFIX=%{_prefix} \
+	XMAMEROOT=%{_datadir}/games/%{name} \
+	CC="%{__cc} %{rpmcflags}" \
+	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
+	DISPLAY_METHOD=svgalib \
+	SOUND_ESOUND=1 \
+	SOUND_ALSA=1 \
+	SOUND_ARTS_TEIRA=1 \
+	SOUND_ARTS_SMOTEK=1 \
+	SOUND_SDL=1 \
+	#XMAME_NET=1
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -357,16 +367,22 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man6} \
 	$RPM_BUILD_ROOT%{_datadir}/games/%{name}/{cab,rc} \
 	$RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}} \
 	$RPM_BUILD_ROOT%{_datadir}/qtmame
-install xmame.SDL $RPM_BUILD_ROOT%{_bindir}
 
 %if %{with svga}
 install xmame.svgalib $RPM_BUILD_ROOT%{_bindir}
 install xmess.svgalib $RPM_BUILD_ROOT%{_bindir}
 %endif
 
+%if %{with x11}
 install xmame.x11 $RPM_BUILD_ROOT%{_bindir}
 install xmess.x11 $RPM_BUILD_ROOT%{_bindir}
+%endif
+
+%if %{with sdl}
+install xmame.SDL $RPM_BUILD_ROOT%{_bindir}
 install xmess.SDL $RPM_BUILD_ROOT%{_bindir}
+%endif
+
 install contrib/tools/xmame-screensaver $RPM_BUILD_ROOT%{_bindir}
 cp -R src/unix/cab/ $RPM_BUILD_ROOT%{_datadir}/games/%{name}
 
@@ -396,10 +412,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/games/%{name}
 %{_pixmapsdir}/xmame.png
 
+%if %{with sdl}
 %files SDL
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}.SDL
 %{_desktopdir}/%{name}-SDL.desktop
+%endif
 
 %if %{with svga}
 %files svgalib
@@ -407,10 +425,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}.svgalib
 %endif
 
+%if %{with x11}
 %files x11
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}.x11
 %{_desktopdir}/%{name}-x11.desktop
+%endif
 
 %files screensaver
 %defattr(644,root,root,755)
