@@ -14,7 +14,7 @@ Summary(pl.UTF-8):	Port emulatora M.A.M.E. działający w środowisku Unix/X11
 Summary(pt_BR.UTF-8):	Emulador de Arcades X-Mame
 Name:		xmame
 Version:	0.106
-Release:	0.2
+Release:	0.3
 License:	GPL
 Group:		Applications/Emulators
 #Source0Download:	http://x.mame.net/xmame-doc-7.html
@@ -271,7 +271,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc} %{rpmcflags}" \
-	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
+	LD="%{__cc} %{rpmldflags} -Wl,--relax" \
 	DISPLAY_METHOD=SDL \
 	SOUND_ESOUND=1 \
 	SOUND_ALSA=1 \
@@ -286,7 +286,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc} %{rpmcflags}" \
-	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
+	LD="%{__cc} %{rpmldflags} -Wl,--relax" \
 	X11LIB="-L/usr/X11R6/%{_lib}" \
 	DISPLAY_METHOD=x11 \
 	SOUND_ESOUND=1 \
@@ -302,7 +302,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc} %{rpmcflags}" \
-	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
+	LD="%{__cc} %{rpmldflags} -Wl,--relax" \
 	DISPLAY_METHOD=svgalib \
 	SOUND_ESOUND=1 \
 	SOUND_ALSA=1 \
@@ -318,7 +318,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc} %{rpmcflags}" \
-	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
+	LD="%{__cc} %{rpmldflags} -Wl,--relax" \
 	DISPLAY_METHOD=SDL \
 	SOUND_ESOUND=1 \
 	SOUND_ALSA=1 \
@@ -334,7 +334,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc} %{rpmcflags}" \
-	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
+	LD="%{__cc} %{rpmldflags} -Wl,--relax" \
 	X11LIB="-L/usr/X11R6/%{_lib}" \
 	DISPLAY_METHOD=x11 \
 	SOUND_ESOUND=1 \
@@ -351,7 +351,7 @@ cd ..
 	PREFIX=%{_prefix} \
 	XMAMEROOT=%{_datadir}/games/%{name} \
 	CC="%{__cc} %{rpmcflags}" \
-	LD="%{__cc} %{rpmldflags} -Wl,-s,--relax" \
+	LD="%{__cc} %{rpmldflags} -Wl,--relax" \
 	DISPLAY_METHOD=svgalib \
 	SOUND_ESOUND=1 \
 	SOUND_ALSA=1 \
