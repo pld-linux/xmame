@@ -1,9 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
 Comment=Xmame Front End
 Comment[pl]=Nakładka na Xmame
 Exec=qtmame
-Icon=qtmame.png
+Icon=qtmame
 Name=Qtmame
 Path=
 Terminal=false
